@@ -978,3 +978,5 @@ body.no-webgpu .atmosphere {
 	.link-card { min-height: 11rem; }
 	.home-links__inner, .detail-page__inner { width: calc(100% - 2.4rem); }
 }
+
+.detail-page__inner > .system-grid:first-child { margin-top: 0; }
