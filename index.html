@@ -25,13 +25,15 @@
 /* Watchdog: if the WebGPU scene cannot start (or a module fails to load),
    never leave visitors on the boot screen — show the content statically. */
 window.addEventListener('DOMContentLoaded', function () {
-	setTimeout(function () {
+	function showFallback() {
 		if (!document.body.classList.contains('is-live')) {
 			document.body.classList.add('is-live', 'no-webgpu');
 			var b = document.getElementById('boot');
 			if (b) b.classList.add('is-done');
 		}
-	}, 6000);
+	}
+	if (location.protocol === 'file:' || new URLSearchParams(location.search).has('fallback')) showFallback();
+	else setTimeout(showFallback, 3000);
 });
 </script>
 <script src="./vendor/gsap/gsap.min.js" defer></script>
