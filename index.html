@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HCTECH — GLRV II · Récupération de vapeurs d'essence en Tunisie</title>
+<meta name="description" content="HCTECH distribue en Tunisie la machine GLRV II de GECO Korea : récupération des vapeurs d'essence au niveau des cuves de stockage des stations-service. The Green Boost to Your Profits.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0f08">
+<link rel="icon" href="./assets/logo-hctech.png">
+<link rel="stylesheet" href="./styles/main.css">
+
+<script type="importmap">
+{
+	"imports": {
+		"three": "./vendor/three/three.webgpu.js",
+		"three/webgpu": "./vendor/three/three.webgpu.js",
+		"three/tsl": "./vendor/three/three.tsl.js",
+		"three/addons/": "./vendor/three/addons/"
+	}
+}
+</script>
+
+<script>
+/* Watchdog: if the WebGPU scene cannot start (or a module fails to load),
+   never leave visitors on the boot screen — show the content statically. */
+window.addEventListener('DOMContentLoaded', function () {
+	setTimeout(function () {
+		if (!document.body.classList.contains('is-live')) {
+			document.body.classList.add('is-live', 'no-webgpu');
+			var b = document.getElementById('boot');
+			if (b) b.classList.add('is-done');
+		}
+	}, 6000);
+});
+</script>
+<script src="./vendor/gsap/gsap.min.js" defer></script>
+<script src="./vendor/gsap/ScrollTrigger.min.js" defer></script>
+<script src="./vendor/gsap/SplitText.min.js" defer></script>
+<script type="module" src="./src/site/i18n.js"></script>
+<script type="module" src="./src/site/contact.js"></script>
+<script type="module" src="./src/main.js"></script>
+</head>
+
+<body>
+
+<canvas id="stage" aria-hidden="true"></canvas>
+<div class="atmosphere" aria-hidden="true"></div>
+
+<header class="chrome nav">
+	<a class="nav__brand" href="#top">
+		<img class="nav__logo" src="./assets/logo-hctech.png" alt="HCTECH">
+	</a>
+	<nav class="nav__links" aria-label="Sections">
+		<a href="#chapitre-0" data-i18n="nav.problem">Le problème</a>
+		<a href="#chapitre-1" data-i18n="nav.solution">GLRV II</a>
+		<a href="#chapitre-2" data-i18n="nav.benefits">Avantages</a>
+		<a href="#chapitre-3" data-i18n="nav.about">HCTECH</a>
+		<a href="#contact" data-i18n="nav.contact">Contact</a>
+	</nav>
+	<div class="nav__lang" role="group" aria-label="Language">
+		<button type="button" data-lang="fr" class="is-active">FR</button>
+		<button type="button" data-lang="en">EN</button>
+		<button type="button" data-lang="ar">ع</button>
+	</div>
+</header>
+
+<div class="chrome scrollbar" aria-hidden="true"><i data-progress></i></div>
+
+<aside class="chrome rail" aria-hidden="true">
+	<ol>
+		<li data-rail="0"><b>I</b><span data-i18n="rail.0">Vapeurs</span></li>
+		<li data-rail="1"><b>II</b><span data-i18n="rail.1">GLRV II</span></li>
+		<li data-rail="2"><b>III</b><span data-i18n="rail.2">Profits</span></li>
+		<li data-rail="3"><b>IV</b><span data-i18n="rail.3">HCTECH</span></li>
+	</ol>
+</aside>
+
+<div class="chrome hud" aria-hidden="true">
+	<span data-hud="fps">— fps</span>
+	<span class="dot">·</span>
+	<span data-hud="count">—</span>
+	<span class="dot">·</span>
+	<span data-hud="state">—</span>
+</div>
+
+<main id="top">
+
+	<section class="panel hero">
+		<div class="panel__inner">
+			<p class="eyebrow" data-reveal data-i18n="hero.eyebrow">Récupération de vapeurs d'essence · Tunisie</p>
+			<h1 class="display display--hero" data-reveal-lines data-i18n="hero.title">The Green Boost to Your Profits.</h1>
+			<p class="lede" data-reveal data-i18n="hero.lede">HCTECH distribue en Tunisie la <b>GLRV II</b> de GECO Korea — l'unité de récupération des vapeurs d'essence qui transforme les pertes de vos cuves de stockage en carburant récupéré, et vos émissions en économies.</p>
+			<p class="hero__cta" data-reveal>
+				<a class="btn" href="#contact" data-i18n="hero.cta">Demander une étude gratuite</a>
+			</p>
+		</div>
+		<div class="hero__cue" data-reveal>
+			<span data-i18n="hero.scroll">Défiler</span>
+			<i aria-hidden="true"></i>
+		</div>
+	</section>
+
+	<section class="panel chapter chapter--left" id="chapitre-0" data-chapter="0">
+		<div class="panel__inner">
+			<div class="card">
+				<p class="eyebrow"><b>I</b> — <span data-i18n="c0.eyebrow">Le problème</span></p>
+				<h2 class="display" data-reveal-lines data-i18n="c0.title">Vos cuves respirent. Vos profits s'évaporent.</h2>
+				<p class="body" data-reveal data-i18n="c0.body">Dans une station-service, le réservoir souterrain « respire » en permanence : à chaque variation de température et à chaque livraison, des vapeurs d'essence s'échappent par l'évent de la cuve. C'est du carburant que vous avez payé et que vous ne vendrez jamais — et une source d'émissions de COV et de risques d'incendie.</p>
+				<dl class="spec" data-reveal>
+					<div><dt data-i18n="c0.s1t">Pertes</dt><dd data-i18n="c0.s1d">Évaporation continue, jour et nuit</dd></div>
+					<div><dt data-i18n="c0.s2t">Émissions</dt><dd data-i18n="c0.s2d">COV rejetés dans l'atmosphère</dd></div>
+					<div><dt data-i18n="c0.s3t">Risques</dt><dd data-i18n="c0.s3d">Inflammabilité · odeurs · HSE</dd></div>
+				</dl>
+			</div>
+		</div>
+	</section>
+
+	<section class="panel chapter chapter--right" id="chapitre-1" data-chapter="1">
+		<div class="panel__inner">
+			<div class="card">
+				<p class="eyebrow"><b>II</b> — <span data-i18n="c1.eyebrow">La solution</span></p>
+				<h2 class="display" data-reveal-lines data-i18n="c1.title">GLRV II, la récupératrice de vapeurs.</h2>
+				<p class="body" data-reveal data-i18n="c1.body">Installée sur l'évent de la cuve de stockage, la GLRV II capte les vapeurs d'essence avant qu'elles ne s'échappent. Un lit de charbon actif adsorbe les hydrocarbures, puis une pompe à vide les désorbe et les condense : l'essence liquide retourne directement dans votre cuve, prête à être revendue.</p>
+				<dl class="spec" data-reveal>
+					<div><dt data-i18n="c1.s1t">Technologie</dt><dd data-i18n="c1.s1d">Adsorption charbon actif + régénération sous vide</dd></div>
+					<div><dt data-i18n="c1.s2t">Produit récupéré</dt><dd data-i18n="c1.s2d">Essence liquide, réinjectée en cuve</dd></div>
+					<div><dt data-i18n="c1.s3t">Installation</dt><dd data-i18n="c1.s3d">Sur l'évent existant, sans gros travaux</dd></div>
+				</dl>
+				<figure class="exploded" data-reveal>
+					<img src="./assets/glrv2-exploded.png" alt="GLRV II — vue éclatée : caisson, réservoir charbon actif, pompe à vide, condenseur" loading="lazy">
+					<figcaption data-i18n="c1.fig">Vue éclatée de la GLRV II : caisson inox, réservoir à charbon actif, pompe à vide, condenseur et vannes.</figcaption>
+				</figure>
+			</div>
+		</div>
+	</section>
+
+	<section class="panel chapter chapter--left" id="chapitre-2" data-chapter="2">
+		<div class="panel__inner">
+			<div class="card">
+				<p class="eyebrow"><b>III</b> — <span data-i18n="c2.eyebrow">Avantages &amp; ROI</span></p>
+				<h2 class="display" data-reveal-lines data-i18n="c2.title">Chaque litre récupéré est un litre revendu.</h2>
+				<p class="body" data-reveal data-i18n="c2.body">La GLRV II convertit une perte invisible en revenu mesurable : l'essence récupérée retourne en stock et compense son investissement au fil des litres. En parallèle, vous réduisez vos émissions, améliorez la sécurité du site et anticipez la réglementation environnementale.</p>
+				<dl class="spec" data-reveal>
+					<div><dt data-i18n="c2.s1t">Rentabilité</dt><dd data-i18n="c2.s1d">Essence récupérée = chiffre d'affaires additionnel</dd></div>
+					<div><dt data-i18n="c2.s2t">Environnement</dt><dd data-i18n="c2.s2d">Réduction massive des émissions de COV</dd></div>
+					<div><dt data-i18n="c2.s3t">Sécurité</dt><dd data-i18n="c2.s3d">Moins de vapeurs inflammables autour de la station</dd></div>
+				</dl>
+			</div>
+		</div>
+	</section>
+
+	<section class="panel chapter chapter--right" id="chapitre-3" data-chapter="3">
+		<div class="panel__inner">
+			<div class="card">
+				<p class="eyebrow"><b>IV</b> — <span data-i18n="c3.eyebrow">Qui sommes-nous</span></p>
+				<h2 class="display" data-reveal-lines data-i18n="c3.title">HCTECH, votre partenaire en Tunisie.</h2>
+				<p class="body" data-reveal data-i18n="c3.body">HCTECH est le distributeur tunisien de GECO Korea, fabricant de la GLRV II. Nous accompagnons les exploitants de stations-service de bout en bout : étude de rentabilité, installation, mise en service, formation et maintenance.</p>
+				<dl class="spec" data-reveal>
+					<div><dt data-i18n="c3.s1t">Fabricant</dt><dd>GECO Korea — GLRV II</dd></div>
+					<div><dt data-i18n="c3.s2t">Distribution</dt><dd data-i18n="c3.s2d">HCTECH · Tunisie</dd></div>
+					<div><dt data-i18n="c3.s3t">Services</dt><dd data-i18n="c3.s3d">Étude · installation · SAV</dd></div>
+				</dl>
+			</div>
+		</div>
+	</section>
+
+	<section class="panel outro" id="contact">
+		<div class="panel__inner">
+			<h2 class="display display--outro" data-reveal-lines data-i18n="contact.title">Parlons de votre station.</h2>
+			<p class="lede" data-reveal data-i18n="contact.lede">Décrivez-nous votre installation — nombre de cuves, volumes, fréquence des livraisons — et nous vous répondons avec une première estimation du potentiel de récupération.</p>
+
+			<div class="contact__grid" data-reveal>
+				<form class="cform" id="contact-form" novalidate aria-label="Formulaire de contact">
+					<label><span data-i18n="form.name">Nom complet *</span>
+						<input type="text" name="name" required maxlength="120" autocomplete="name">
+					</label>
+					<label><span data-i18n="form.company">Société / Station</span>
+						<input type="text" name="company" maxlength="160" autocomplete="organization">
+					</label>
+					<label><span data-i18n="form.phone">Téléphone</span>
+						<input type="tel" name="phone" maxlength="60" autocomplete="tel">
+					</label>
+					<label><span data-i18n="form.email">E-mail *</span>
+						<input type="email" name="email" required maxlength="160" autocomplete="email">
+					</label>
+					<label class="cform__full"><span data-i18n="form.message">Message *</span>
+						<textarea name="message" required maxlength="4000" rows="5"></textarea>
+					</label>
+					<div class="cform__foot cform__full">
+						<button class="btn" type="submit" data-i18n="form.send">Envoyer la demande</button>
+						<p class="cform__status" data-form-status role="status" aria-live="polite"></p>
+					</div>
+				</form>
+
+				<address class="ccard">
+					<p class="ccard__name">Mohamed Lamine Belajouza</p>
+					<p class="ccard__role" data-i18n="contact.role">Gérant — HCTECH</p>
+					<p><a href="tel:+21650329252" dir="ltr">+216 50 329 252</a></p>
+					<p><a href="mailto:mlbelajouza@gmail.com">mlbelajouza@gmail.com</a></p>
+					<p class="ccard__area" data-i18n="contact.area">Tunisie — stations-service &amp; dépôts</p>
+				</address>
+			</div>
+
+			<footer class="foot" data-reveal>
+				<span>HCTECH — The Green Boost to Your Profits</span>
+				<span class="dot" aria-hidden="true">·</span>
+				<span data-i18n="foot.tech">Technologie GECO Korea · GLRV II</span>
+				<span class="dot" aria-hidden="true">·</span>
+				<span>2026</span>
+			</footer>
+		</div>
+	</section>
+
+</main>
+
+<div class="boot" id="boot">
+	<div class="boot__inner">
+		<p class="boot__mark">HCTECH</p>
+		<div class="boot__bar"><i></i></div>
+		<p class="boot__note" data-boot-note>initialisation</p>
+	</div>
+</div>
+
+<div class="fallback" id="fallback" hidden>
+	<div class="fallback__inner">
+		<p class="eyebrow">WebGPU</p>
+		<h1 class="display" data-i18n="fallback.title">Votre navigateur ne prend pas en charge WebGPU.</h1>
+		<p class="body" data-i18n="fallback.body">Le contenu du site reste accessible ci-dessous, mais l'animation de fond nécessite Chrome, Edge ou Safari 26+ sur ordinateur.</p>
+		<p class="body fallback__reason" data-fallback-reason></p>
+	</div>
+</div>
+
+</body>
+</html>
