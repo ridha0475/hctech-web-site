@@ -37,7 +37,7 @@ async function start() {
 
 	let stage;
 	try {
-		bootNote.textContent = 'requesting adapter';
+		bootNote.textContent = window.__i18nGet?.('boot.request') || 'requesting adapter';
 		stage = await createStage( canvas, { reducedMotion } );
 	} catch ( error ) {
 		fail( error && error.message ? error.message : error );
@@ -48,7 +48,7 @@ async function start() {
 	const drive = scroll.drive;
 
 	/* first frame: this is where the pipelines actually get built --------- */
-	bootNote.textContent = 'compiling pipelines';
+	bootNote.textContent = window.__i18nGet?.('boot.compile') || 'compiling pipelines';
 	await new Promise( ( r ) => requestAnimationFrame( r ) );
 	stage.frame( 1 / 60, drive );
 	await new Promise( ( r ) => requestAnimationFrame( r ) );

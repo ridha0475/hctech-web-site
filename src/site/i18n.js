@@ -8,6 +8,22 @@ import { STATES } from '../scene/palette.js';
 
 const STR = {
 	fr: {
+		'meta.home.title': "HCTECH — Récupération de vapeurs d'essence en Tunisie",
+		'meta.home.description': "HCTECH distribue en Tunisie la GLRV II de GECO Korea, une solution de récupération des vapeurs d'essence pour stations-service.",
+		'meta.problem.title': "Le problème des vapeurs d'essence — HCTECH",
+		'meta.problem.description': "Comprendre les pertes de carburant, les émissions de COV et les risques liés aux vapeurs des cuves de stations-service.",
+		'meta.machine.title': "GLRV II — Machine de récupération des vapeurs | HCTECH",
+		'meta.machine.description': "Découvrez le principe, les systèmes et les composants de la machine de récupération des vapeurs d'essence GLRV II.",
+		'meta.benefits.title': 'Avantages et rentabilité — HCTECH',
+		'meta.benefits.description': "Les avantages économiques, environnementaux et opérationnels de la récupération des vapeurs d'essence GLRV II.",
+		'meta.about.title': 'HCTECH — Votre partenaire GLRV II en Tunisie',
+		'meta.about.description': "HCTECH accompagne les exploitants tunisiens dans l'étude, l'installation, la mise en service et la maintenance de la GLRV II.",
+		'meta.contact.title': 'Contact — HCTECH',
+		'meta.contact.description': "Contactez HCTECH pour estimer le potentiel de récupération des vapeurs d'essence de votre station.",
+		'aria.pages': 'Pages', 'aria.language': 'Langue', 'aria.contactForm': 'Formulaire de contact',
+		'common.home': 'Accueil', 'common.discover': 'Explorez la solution.',
+		'common.problem': 'Le problème', 'common.benefits': 'Avantages', 'common.next': 'Suivant',
+		'boot.request': "connexion au processeur graphique", 'boot.compile': 'préparation des animations',
 		'nav.problem': 'Le problème',
 		'nav.solution': 'GLRV II',
 		'nav.benefits': 'Avantages',
@@ -47,18 +63,38 @@ const STR = {
 		'machine.cloud.title': 'Suivi connecté', 'machine.cloud.body': 'Supervision en ligne depuis plusieurs plateformes et connexion possible aux systèmes de suivi autorisés.',
 		'machine.parts.title': 'Composants principaux',
 		'machine.parts.body': "Entrée des vapeurs, échangeur thermique, sortie d'air, coffret de commande et compresseur sont regroupés dans un caisson compact accessible pour la maintenance.",
+		'machine.section.install': '01 · Installation', 'machine.section.cycle': '02 · Cycle',
+		'machine.section.architecture': '03 · Architecture', 'machine.section.parts': '04 · Composants',
+		'machine.section.exploded': '05 · Vue éclatée',
+		'machine.fig.install': "Schéma fabricant GEVLR I/II — circulation du carburant, des vapeurs et de l'air épuré.",
+		'machine.fig.cycle': 'Document fabricant — démarrage, admission, liquéfaction, restitution et veille.',
+		'machine.fig.systems': 'Architecture fonctionnelle présentée dans la documentation fabricant.',
+		'machine.fig.parts': 'Vue technique du caisson et de ses accès de maintenance.',
+		'machine.exploded.title': 'Une conception compacte et maintenable.',
+		'machine.alt.install': "Schéma de raccordement de la machine à la cuve d'une station-service",
+		'machine.alt.cycle': 'Cycle de fonctionnement en cinq étapes de la GEVLR I et II',
+		'machine.alt.systems': 'Les quatre systèmes de la GEVLR I et II',
+		'machine.alt.parts': "Vues de la machine avec entrée des vapeurs, échangeur, sortie d'air, coffret de commande et compresseur",
+		'machine.alt.exploded': 'Vue éclatée de la GLRV II',
 		'c2.eyebrow': 'Avantages & ROI',
 		'c2.title': 'Chaque litre récupéré est un litre revendu.',
 		'c2.body': "La GLRV II convertit une perte invisible en revenu mesurable : l'essence récupérée retourne en stock et compense son investissement au fil des litres. En parallèle, vous réduisez vos émissions, améliorez la sécurité du site et anticipez la réglementation environnementale.",
 		'c2.s1t': 'Rentabilité', 'c2.s1d': "Essence récupérée = chiffre d'affaires additionnel",
 		'c2.s2t': 'Environnement', 'c2.s2d': 'Réduction massive des émissions de COV',
 		'c2.s3t': 'Sécurité', 'c2.s3d': 'Moins de vapeurs inflammables autour de la station',
+		'benefits.operations.title': 'Exploitation',
+		'benefits.operations.body': "Installation sur l'évent existant et fonctionnement automatique selon la pression de la cuve.",
 		'c3.eyebrow': 'Qui sommes-nous',
 		'c3.title': 'HCTECH, votre partenaire en Tunisie.',
 		'c3.body': "HCTECH est le distributeur tunisien de GECO Korea, fabricant de la GLRV II. Nous accompagnons les exploitants de stations-service de bout en bout : étude de rentabilité, installation, mise en service, formation et maintenance.",
 		'c3.s1t': 'Fabricant',
 		'c3.s2t': 'Distribution', 'c3.s2d': 'HCTECH · Tunisie',
 		'c3.s3t': 'Services', 'c3.s3d': 'Étude · installation · SAV',
+		'about.eyebrow': 'HCTECH · Tunisie', 'about.support.title': 'Accompagnement',
+		'about.support.body': 'Étude de rentabilité, mise en service, formation des équipes et maintenance.',
+		'problem.fuel.title': 'Carburant perdu',
+		'problem.fuel.body': 'Une perte invisible mais continue de produit déjà acheté, qui ne pourra pas être vendu.',
+		'problem.cta': 'Découvrir GLRV II',
 		'contact.title': 'Parlons de votre station.',
 		'contact.lede': "Décrivez-nous votre installation — nombre de cuves, volumes, fréquence des livraisons — et nous vous répondons avec une première estimation du potentiel de récupération.",
 		'form.name': 'Nom complet *',
@@ -79,6 +115,22 @@ const STR = {
 		states: ['Vapeurs', 'GLRV II', 'Profits', 'HCTECH'],
 	},
 	en: {
+		'meta.home.title': 'HCTECH — Gasoline vapor recovery in Tunisia',
+		'meta.home.description': 'HCTECH distributes the GECO Korea GLRV II gasoline vapor recovery solution in Tunisia.',
+		'meta.problem.title': 'The gasoline vapor problem — HCTECH',
+		'meta.problem.description': 'Understand fuel losses, VOC emissions and the risks caused by service-station tank vapors.',
+		'meta.machine.title': 'GLRV II — Vapor recovery unit | HCTECH',
+		'meta.machine.description': 'Discover the operating principle, systems and components of the GLRV II gasoline vapor recovery unit.',
+		'meta.benefits.title': 'Benefits and profitability — HCTECH',
+		'meta.benefits.description': 'The economic, environmental and operational benefits of GLRV II gasoline vapor recovery.',
+		'meta.about.title': 'HCTECH — Your GLRV II partner in Tunisia',
+		'meta.about.description': 'HCTECH supports Tunisian operators with assessment, installation, commissioning and maintenance of the GLRV II.',
+		'meta.contact.title': 'Contact — HCTECH',
+		'meta.contact.description': "Contact HCTECH to assess your station's gasoline vapor recovery potential.",
+		'aria.pages': 'Pages', 'aria.language': 'Language', 'aria.contactForm': 'Contact form',
+		'common.home': 'Home', 'common.discover': 'Explore the solution.',
+		'common.problem': 'The problem', 'common.benefits': 'Benefits', 'common.next': 'Next',
+		'boot.request': 'connecting to graphics processor', 'boot.compile': 'preparing animations',
 		'nav.problem': 'The problem',
 		'nav.solution': 'GLRV II',
 		'nav.benefits': 'Benefits',
@@ -118,18 +170,38 @@ const STR = {
 		'machine.cloud.title': 'Connected monitoring', 'machine.cloud.body': 'Online monitoring from multiple platforms, with optional connection to authorized monitoring systems.',
 		'machine.parts.title': 'Main components',
 		'machine.parts.body': 'The vapor inlet, heat exchanger, air outlet, control box and compressor are grouped in a compact enclosure designed for maintenance access.',
+		'machine.section.install': '01 · Installation', 'machine.section.cycle': '02 · Cycle',
+		'machine.section.architecture': '03 · Architecture', 'machine.section.parts': '04 · Components',
+		'machine.section.exploded': '05 · Exploded view',
+		'machine.fig.install': 'GEVLR I/II manufacturer diagram — circulation of fuel, vapor and purified air.',
+		'machine.fig.cycle': 'Manufacturer document — start, intake, liquefaction, return and standby.',
+		'machine.fig.systems': 'Functional architecture shown in the manufacturer documentation.',
+		'machine.fig.parts': 'Technical view of the enclosure and its maintenance access points.',
+		'machine.exploded.title': 'Compact and maintainable by design.',
+		'machine.alt.install': 'Diagram showing the unit connected to a service-station tank',
+		'machine.alt.cycle': 'Five-step operating cycle of the GEVLR I and II',
+		'machine.alt.systems': 'The four systems of the GEVLR I and II',
+		'machine.alt.parts': 'Views showing the vapor inlet, heat exchanger, air outlet, control box and compressor',
+		'machine.alt.exploded': 'Exploded view of the GLRV II',
 		'c2.eyebrow': 'Benefits & ROI',
 		'c2.title': 'Every liter recovered is a liter resold.',
 		'c2.body': 'The GLRV II turns an invisible loss into a measurable revenue stream: recovered gasoline goes back into stock and pays the investment back, liter after liter. At the same time you cut emissions, improve site safety and stay ahead of environmental regulation.',
 		'c2.s1t': 'Profitability', 'c2.s1d': 'Recovered gasoline = additional revenue',
 		'c2.s2t': 'Environment', 'c2.s2d': 'Massive reduction of VOC emissions',
 		'c2.s3t': 'Safety', 'c2.s3d': 'Fewer flammable vapors around the station',
+		'benefits.operations.title': 'Operation',
+		'benefits.operations.body': 'Installation on the existing vent and automatic operation based on tank pressure.',
 		'c3.eyebrow': 'Who we are',
 		'c3.title': 'HCTECH, your partner in Tunisia.',
 		'c3.body': 'HCTECH is the Tunisian distributor of GECO Korea, manufacturer of the GLRV II. We support service-station operators end to end: profitability assessment, installation, commissioning, training and maintenance.',
 		'c3.s1t': 'Manufacturer',
 		'c3.s2t': 'Distribution', 'c3.s2d': 'HCTECH · Tunisia',
 		'c3.s3t': 'Services', 'c3.s3d': 'Assessment · installation · after-sales',
+		'about.eyebrow': 'HCTECH · Tunisia', 'about.support.title': 'Support',
+		'about.support.body': 'Profitability assessment, commissioning, team training and maintenance.',
+		'problem.fuel.title': 'Lost fuel',
+		'problem.fuel.body': 'A continuous, invisible loss of product that has already been purchased and can no longer be sold.',
+		'problem.cta': 'Discover GLRV II',
 		'contact.title': "Let's talk about your station.",
 		'contact.lede': 'Tell us about your setup — number of tanks, volumes, delivery frequency — and we will come back with a first estimate of your recovery potential.',
 		'form.name': 'Full name *',
@@ -150,6 +222,22 @@ const STR = {
 		states: ['Vapors', 'GLRV II', 'Profits', 'HCTECH'],
 	},
 	ar: {
+		'meta.home.title': 'HCTECH — استرجاع أبخرة البنزين في تونس',
+		'meta.home.description': 'توزّع HCTECH في تونس وحدة GLRV II من GECO Korea لاسترجاع أبخرة البنزين في محطات الوقود.',
+		'meta.problem.title': 'مشكلة أبخرة البنزين — HCTECH',
+		'meta.problem.description': 'تعرّفوا على خسائر الوقود وانبعاثات المركبات العضوية المتطايرة ومخاطر أبخرة خزانات محطات الوقود.',
+		'meta.machine.title': 'GLRV II — وحدة استرجاع الأبخرة | HCTECH',
+		'meta.machine.description': 'اكتشفوا مبدأ عمل وأنظمة ومكونات وحدة GLRV II لاسترجاع أبخرة البنزين.',
+		'meta.benefits.title': 'المزايا والمردودية — HCTECH',
+		'meta.benefits.description': 'المزايا الاقتصادية والبيئية والتشغيلية لاسترجاع أبخرة البنزين بواسطة GLRV II.',
+		'meta.about.title': 'HCTECH — شريككم لوحدة GLRV II في تونس',
+		'meta.about.description': 'ترافق HCTECH المشغلين في تونس في الدراسة والتركيب والتشغيل وصيانة وحدة GLRV II.',
+		'meta.contact.title': 'اتصلوا بنا — HCTECH',
+		'meta.contact.description': 'اتصلوا بـ HCTECH لتقدير إمكانات استرجاع أبخرة البنزين في محطتكم.',
+		'aria.pages': 'الصفحات', 'aria.language': 'اللغة', 'aria.contactForm': 'استمارة الاتصال',
+		'common.home': 'الرئيسية', 'common.discover': 'اكتشفوا الحل.',
+		'common.problem': 'المشكلة', 'common.benefits': 'المزايا', 'common.next': 'التالي',
+		'boot.request': 'الاتصال بمعالج الرسوم', 'boot.compile': 'إعداد الرسوم المتحركة',
 		'nav.problem': 'المشكلة',
 		'nav.solution': 'GLRV II',
 		'nav.benefits': 'المزايا',
@@ -189,18 +277,38 @@ const STR = {
 		'machine.cloud.title': 'المتابعة المتصلة', 'machine.cloud.body': 'متابعة عبر الإنترنت من منصات متعددة مع إمكانية الاتصال بأنظمة المراقبة المعتمدة.',
 		'machine.parts.title': 'المكونات الرئيسية',
 		'machine.parts.body': 'تُجمع فتحة دخول الأبخرة والمبادل الحراري ومخرج الهواء وصندوق التحكم والضاغط في هيكل مدمج يسهل الوصول إليه للصيانة.',
+		'machine.section.install': '01 · التركيب', 'machine.section.cycle': '02 · الدورة',
+		'machine.section.architecture': '03 · البنية', 'machine.section.parts': '04 · المكونات',
+		'machine.section.exploded': '05 · منظر تفصيلي',
+		'machine.fig.install': 'مخطط المصنّع GEVLR I/II — حركة الوقود والأبخرة والهواء المنقّى.',
+		'machine.fig.cycle': 'وثيقة المصنّع — التشغيل والسحب والتسييل والإرجاع والاستعداد.',
+		'machine.fig.systems': 'البنية الوظيفية كما وردت في وثائق المصنّع.',
+		'machine.fig.parts': 'منظر تقني للهيكل ومنافذ الصيانة.',
+		'machine.exploded.title': 'تصميم مدمج وسهل الصيانة.',
+		'machine.alt.install': 'مخطط توصيل الوحدة بخزان محطة الوقود',
+		'machine.alt.cycle': 'دورة تشغيل GEVLR I وII في خمس مراحل',
+		'machine.alt.systems': 'الأنظمة الأربعة لوحدتي GEVLR I وII',
+		'machine.alt.parts': 'مناظر توضح مدخل الأبخرة والمبادل الحراري ومخرج الهواء وصندوق التحكم والضاغط',
+		'machine.alt.exploded': 'منظر تفصيلي لوحدة GLRV II',
 		'c2.eyebrow': 'المزايا والعائد',
 		'c2.title': 'كل لتر مُسترجَع هو لتر يُباع من جديد.',
 		'c2.body': 'تحوّل GLRV II خسارة غير مرئية إلى مورد قابل للقياس: البنزين المسترجَع يعود إلى المخزون ويسدّد الاستثمار لتراً بعد لتر. وفي الوقت نفسه تخفّضون الانبعاثات وتحسّنون سلامة المحطة وتستبقون التشريعات البيئية.',
 		'c2.s1t': 'المردودية', 'c2.s1d': 'البنزين المسترجَع = مداخيل إضافية',
 		'c2.s2t': 'البيئة', 'c2.s2d': 'خفض كبير لانبعاثات المركبات المتطايرة',
 		'c2.s3t': 'السلامة', 'c2.s3d': 'أبخرة قابلة للاشتعال أقل حول المحطة',
+		'benefits.operations.title': 'التشغيل',
+		'benefits.operations.body': 'تركيب على فتحة التهوية الموجودة وتشغيل آلي حسب ضغط الخزان.',
 		'c3.eyebrow': 'من نحن',
 		'c3.title': 'HCTECH، شريككم في تونس.',
 		'c3.body': 'HCTECH هي الموزّع التونسي لشركة GECO Korea، مصنِّعة GLRV II. نرافق مستغلّي محطات الوقود من البداية إلى النهاية: دراسة الجدوى، التركيب، التشغيل، التكوين والصيانة.',
 		'c3.s1t': 'المصنِّع',
 		'c3.s2t': 'التوزيع', 'c3.s2d': 'HCTECH · تونس',
 		'c3.s3t': 'الخدمات', 'c3.s3d': 'دراسة · تركيب · خدمة ما بعد البيع',
+		'about.eyebrow': 'HCTECH · تونس', 'about.support.title': 'المرافقة',
+		'about.support.body': 'دراسة المردودية والتشغيل وتكوين الفرق والصيانة.',
+		'problem.fuel.title': 'وقود مفقود',
+		'problem.fuel.body': 'خسارة مستمرة وغير مرئية لمنتج تم شراؤه ولن يمكن بيعه.',
+		'problem.cta': 'اكتشفوا GLRV II',
 		'contact.title': 'لنتحدث عن محطتكم.',
 		'contact.lede': 'صفوا لنا منشأتكم — عدد الخزانات، الحجوم، وتيرة التزويد — وسنردّ عليكم بتقدير أولي لإمكانات الاسترجاع.',
 		'form.name': 'الاسم الكامل *',
@@ -226,8 +334,9 @@ let currentLang = 'fr';
 window.__i18nGet = (key) => (STR[currentLang] && STR[currentLang][key]) || STR.fr[key] || key;
 
 function setLang(lang) {
+	if (!STR[lang]) lang = 'fr';
 	currentLang = lang;
-	const dict = STR[lang] || STR.fr;
+	const dict = STR[lang];
 	document.documentElement.lang = lang;
 	document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
@@ -235,6 +344,21 @@ function setLang(lang) {
 		const key = el.getAttribute('data-i18n');
 		if (dict[key] != null) el.textContent = dict[key];
 	});
+	document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+		const value = dict[el.dataset.i18nAlt];
+		if (value != null) el.setAttribute('alt', value);
+	});
+	document.querySelectorAll('[data-i18n-aria-label]').forEach((el) => {
+		const value = dict[el.dataset.i18nAriaLabel];
+		if (value != null) el.setAttribute('aria-label', value);
+	});
+
+	const page = document.body.dataset.page;
+	if (page) {
+		document.title = dict[`meta.${page}.title`] || document.title;
+		const description = document.querySelector('meta[name="description"]');
+		if (description && dict[`meta.${page}.description`]) description.content = dict[`meta.${page}.description`];
+	}
 
 	// Rename the four field states (HUD + scene labels read these).
 	dict.states.forEach((name, i) => { if (STATES[i]) STATES[i].name = name; });

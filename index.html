@@ -12,14 +12,14 @@
 <script src="./vendor/gsap/gsap.min.js" defer></script><script src="./vendor/gsap/ScrollTrigger.min.js" defer></script><script src="./vendor/gsap/SplitText.min.js" defer></script>
 <script type="module" src="./src/site/i18n.js"></script><script type="module" src="./src/main.js"></script>
 </head>
-<body>
+<body data-page="home">
 <canvas id="stage" aria-hidden="true"></canvas><div class="atmosphere" aria-hidden="true"></div>
 <header class="chrome nav">
 	<a class="nav__brand" href="./index.html" aria-current="page"><img class="nav__logo" src="./assets/logo-hctech.png" alt="HCTECH"></a>
-	<nav class="nav__links" aria-label="Pages">
+	<nav class="nav__links" aria-label="Pages" data-i18n-aria-label="aria.pages">
 		<a href="./probleme.html" data-i18n="nav.problem">Le problème</a><a href="./glrv2.html" data-i18n="nav.solution">GLRV II</a><a href="./avantages.html" data-i18n="nav.benefits">Avantages</a><a href="./hctech.html" data-i18n="nav.about">HCTECH</a><a href="./contact.html" data-i18n="nav.contact">Contact</a>
 	</nav>
-	<div class="nav__lang" role="group" aria-label="Langue"><button type="button" data-lang="fr" class="is-active">FR</button><button type="button" data-lang="en">EN</button><button type="button" data-lang="ar">ع</button></div>
+	<div class="nav__lang" role="group" aria-label="Langue" data-i18n-aria-label="aria.language"><button type="button" data-lang="fr" class="is-active">FR</button><button type="button" data-lang="en">EN</button><button type="button" data-lang="ar">ع</button></div>
 </header>
 <div class="chrome scrollbar" aria-hidden="true"><i data-progress></i></div>
 <div class="chrome hud" aria-hidden="true"><span data-hud="fps">— fps</span><span class="dot">·</span><span data-hud="count">—</span><span class="dot">·</span><span data-hud="state">—</span></div>
@@ -31,7 +31,7 @@
 		<p class="hero__cta" data-reveal><a class="btn" href="./contact.html" data-i18n="hero.cta">Demander une étude gratuite</a></p>
 	</div><div class="hero__cue" data-reveal><span data-i18n="hero.scroll">Défiler</span><i aria-hidden="true"></i></div></section>
 	<section class="home-links"><div class="home-links__inner">
-		<p class="eyebrow">HCTECH · GLRV II</p><h2 class="page-title">Explorez la solution.</h2>
+		<p class="eyebrow">HCTECH · GLRV II</p><h2 class="page-title" data-i18n="common.discover">Explorez la solution.</h2>
 		<div class="link-grid">
 			<a class="link-card" href="./probleme.html"><b>01</b><strong data-i18n="c0.title">Vos cuves respirent. Vos profits s'évaporent.</strong><span data-i18n="nav.problem">Le problème</span></a>
 			<a class="link-card" href="./glrv2.html"><b>02</b><strong data-i18n="c1.title">GLRV II, la récupératrice de vapeurs.</strong><span data-i18n="nav.solution">GLRV II</span></a>
