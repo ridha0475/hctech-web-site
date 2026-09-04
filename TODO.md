@@ -4,7 +4,7 @@ Liste de travail classée par priorité. Les contenus techniques et réglementai
 
 ## Priorité 1 — Contenu à terminer
 
-- [ ] **Page L'équipe** — fournir les noms, fonctions, biographies courtes et portraits validés.
+- [ ] **Page L'équipe** — noms et fonctions en place (Belajouza, BenHamoud, astreinte technique 24/7) ; reste à fournir biographies courtes et portraits validés.
 - [ ] **Page Notre vision** — définir la mission HCTECH, l'ambition pour la Tunisie et 3 engagements concrets.
 - [x] **Page À propos** — compléter l'histoire de HCTECH, son rôle exact, sa zone d'intervention et son offre de services.
 - [ ] **Fiche technique GEVLR-II** — intégrer les données officielles : dimensions, poids, débit, puissance, consommation, capacité de récupération, conditions d'exploitation et maintenance.
