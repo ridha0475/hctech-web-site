@@ -1007,6 +1007,13 @@ body.no-webgpu .atmosphere {
 	font-size: 0.85rem;
 }
 
+.machine-visual-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.machine-visual-grid .machine-figure { margin-top: 0; }
+
+@media (max-width: 760px) {
+	.machine-visual-grid { grid-template-columns: 1fr; }
+}
+
 /* --- problem page --- */
 .problem-page .detail-page__inner { display: grid; gap: clamp(5rem, 10vw, 9rem); }
 .problem-section { scroll-margin-top: 8rem; }
