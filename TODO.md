@@ -9,8 +9,9 @@ Liste de travail classée par priorité. Les contenus techniques et réglementai
 - [x] **Page À propos** — compléter l'histoire de HCTECH, son rôle exact, sa zone d'intervention et son offre de services.
 - [x] **Fiche technique GEVLR-II** — données officielles GECO intégrées (dimensions, poids, débit, puissance, consommation, capacité de récupération, conditions d'exploitation, supervision/maintenance). ⚠️ La fiche et le certificat ATEX de GECO couvrent le modèle générique « GEVLR », pas une fiche distincte « GEVLR-II » — à faire confirmer par GECO (voir `documents-confidentiels/fournisseur GECO/SPECS_GEVLR.md`).
 - [ ] **Composants de la vue éclatée** — faire valider par le fabricant les six désignations et leur position dans l'illustration avant de présenter celle-ci comme une vue technique contractuelle.
-- [ ] **Certifications** — récupérer les PDF officiels, vérifier le modèle couvert, la référence, l'organisme, la date et le périmètre exact de chaque certificat. Le certificat ATEX actuel (module B, examen de type UE, n° ECM 22 ATEX-B CS23, expire 14/11/2027) ne couvre que la conception : demander le module D/E pour la production + la déclaration UE de conformité.
+- [x] **Certifications** — organisme (ECM, Ente Certificazione Macchine srl, n° 1282), référence, dates de validité (15/11/2022 → 14/11/2027) et marquage (Ex d IIB T4) affichés sur la page Avantages. Reste : récupérer le PDF officiel du certificat (actuellement lien externe vers gecokorea.com) et demander à GECO le module D/E pour la production + la déclaration UE de conformité (module B ne couvre que la conception).
 - [ ] **Allégations commerciales** — valider et sourcer les chiffres de récupération, réduction des COV, consommation, maintenance et retour sur investissement.
+- [x] **Page Le modèle économique** — nouveau sous-menu sous « La solution ». Principe (zéro investissement, partage 60 % HCTech / 40 % exploitant, maintenance incluse) et le pourcentage de partage publiés à la demande explicite du client (2026-09-04).
 
 ## Priorité 2 — Conversion commerciale
 
