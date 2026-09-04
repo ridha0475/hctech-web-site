@@ -1248,6 +1248,23 @@ body.no-webgpu .atmosphere {
 .benefits-next { padding: clamp(1.6rem, 4vw, 3.5rem); border: 1px solid var(--line); border-radius: 1.2rem; background: rgba(246, 243, 236, 0.045); }
 .benefits-next .btn { margin-top: 2rem; }
 
+/* --- mentions légales --- */
+.legal-dl { display: grid; gap: 0; margin: clamp(2rem, 4vw, 3rem) 0 0; max-width: 68ch; }
+.legal-dl > div { display: grid; grid-template-columns: minmax(12rem, 18rem) 1fr; gap: 1rem; padding: 0.9rem 0; border-top: 1px solid var(--line); }
+.legal-dl > div:first-child { border-top: 0; padding-top: 0; }
+.legal-dl dt { color: var(--ink-soft); font-size: 0.85rem; }
+.legal-dl dd { margin: 0; color: var(--ink); }
+.legal-dl a { color: var(--accent); }
+.legal-updated { margin-top: 2.5rem; color: var(--ink-faint); font-size: 0.78rem; }
+
+.page-footer__legal { margin-top: 1.4rem; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.page-footer__legal a { color: var(--ink-faint); transition: color 0.2s; }
+.page-footer__legal a:hover { color: var(--accent); }
+
+@media (max-width: 640px) {
+	.legal-dl > div { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+
 /* --- calculateur --- */
 .calc-inputs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
 .calc-block { display: flex; flex-direction: column; gap: 0.9rem; padding: clamp(1.4rem, 2.5vw, 2.2rem); border: 1px solid var(--line); border-radius: 1.2rem; background: rgba(246, 243, 236, 0.045); }
