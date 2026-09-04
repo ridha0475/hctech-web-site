@@ -470,11 +470,9 @@ main { position: relative; z-index: 10; }
 	will-change: transform, opacity;
 }
 
-.split-mask {
-	overflow: hidden;
-	display: block;
-	padding-bottom: 0.12em;
-	margin-bottom: -0.12em;
+.split-line-mask {
+	padding-bottom: 0.18em;
+	margin-bottom: -0.18em;
 }
 
 /* ============================================================== boot ==== */
