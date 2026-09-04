@@ -7,9 +7,9 @@ Liste de travail classée par priorité. Les contenus techniques et réglementai
 - [ ] **Page L'équipe** — noms et fonctions en place (Belajouza, BenHamoud, astreinte technique 24/7) ; reste à fournir biographies courtes et portraits validés.
 - [x] **Page Notre vision** — définir la mission HCTECH, l'ambition pour la Tunisie et 3 engagements concrets.
 - [x] **Page À propos** — compléter l'histoire de HCTECH, son rôle exact, sa zone d'intervention et son offre de services.
-- [ ] **Fiche technique GEVLR-II** — intégrer les données officielles : dimensions, poids, débit, puissance, consommation, capacité de récupération, conditions d'exploitation et maintenance.
+- [x] **Fiche technique GEVLR-II** — données officielles GECO intégrées (dimensions, poids, débit, puissance, consommation, capacité de récupération, conditions d'exploitation, supervision/maintenance). ⚠️ La fiche et le certificat ATEX de GECO couvrent le modèle générique « GEVLR », pas une fiche distincte « GEVLR-II » — à faire confirmer par GECO (voir `documents-confidentiels/fournisseur GECO/SPECS_GEVLR.md`).
 - [ ] **Composants de la vue éclatée** — faire valider par le fabricant les six désignations et leur position dans l'illustration avant de présenter celle-ci comme une vue technique contractuelle.
-- [ ] **Certifications** — récupérer les PDF officiels, vérifier le modèle couvert, la référence, l'organisme, la date et le périmètre exact de chaque certificat.
+- [ ] **Certifications** — récupérer les PDF officiels, vérifier le modèle couvert, la référence, l'organisme, la date et le périmètre exact de chaque certificat. Le certificat ATEX actuel (module B, examen de type UE, n° ECM 22 ATEX-B CS23, expire 14/11/2027) ne couvre que la conception : demander le module D/E pour la production + la déclaration UE de conformité.
 - [ ] **Allégations commerciales** — valider et sourcer les chiffres de récupération, réduction des COV, consommation, maintenance et retour sur investissement.
 
 ## Priorité 2 — Conversion commerciale
