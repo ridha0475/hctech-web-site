@@ -1085,10 +1085,24 @@ body.no-webgpu .atmosphere {
 .flow-legend .is-air { background: #d8ead0; }
 
 .impact-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.impact-card { min-height: 15rem; padding: clamp(1.3rem, 2.5vw, 2rem); display: flex; flex-direction: column; justify-content: space-between; }
+.impact-card {
+	min-height: 19rem;
+	padding: clamp(1.3rem, 2.5vw, 2rem);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+}
 .impact-card__number { font: 500 0.7rem/1 var(--mono); letter-spacing: 0.16em; color: var(--accent); }
-.impact-card--planet { background: rgba(123, 193, 67, 0.08); }
-.impact-card--health { background: rgba(240, 131, 34, 0.08); }
+.impact-card h3,
+.impact-card p { position: relative; z-index: 1; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8); }
+.impact-card p { color: rgba(255, 255, 255, 0.82); }
+.impact-card--fuel { background-image: linear-gradient(180deg, rgba(5, 7, 10, 0.3), rgba(5, 7, 10, 0.94) 78%), url('../assets/impact-perte-dinars.png'); background-position: 58% center; }
+.impact-card--planet { background-image: linear-gradient(180deg, rgba(5, 7, 10, 0.32), rgba(5, 7, 10, 0.94) 78%), url('../assets/impact-pollution-air.png'); }
+.impact-card--health { background-image: linear-gradient(180deg, rgba(5, 7, 10, 0.34), rgba(5, 7, 10, 0.94) 78%), url('../assets/impact-sante-humaine.png'); }
 
 .risk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .risk-panel { padding: clamp(1.5rem, 3.5vw, 3rem); }
