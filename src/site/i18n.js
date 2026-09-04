@@ -25,10 +25,16 @@ const STR = {
 		'common.problem': 'Le problème', 'common.benefits': 'Avantages', 'common.next': 'Suivant',
 		'boot.request': "connexion au processeur graphique", 'boot.compile': 'préparation des animations',
 		'nav.problem': 'Le problème',
-		'nav.solution': 'GLRV II',
+		'nav.solution': 'La solution',
 		'nav.benefits': 'Avantages',
 		'nav.about': 'HCTECH',
+		'nav.aboutPage': 'À propos',
+		'nav.team': "L'équipe",
+		'nav.vision': 'Notre vision',
+		'nav.technology': 'La technologie',
+		'nav.machine': 'La machine GLRV II',
 		'nav.contact': 'Contact',
+		'nav.study': 'Demander une étude',
 		'rail.0': 'Vapeurs', 'rail.1': 'GLRV II', 'rail.2': 'Profits', 'rail.3': 'HCTECH',
 		'hero.eyebrow': "Récupération de vapeurs d'essence · Tunisie",
 		'hero.title': "L'impulsion verte pour vos profits.",
@@ -128,10 +134,16 @@ const STR = {
 		'common.problem': 'The problem', 'common.benefits': 'Benefits', 'common.next': 'Next',
 		'boot.request': 'connecting to graphics processor', 'boot.compile': 'preparing animations',
 		'nav.problem': 'The problem',
-		'nav.solution': 'GLRV II',
+		'nav.solution': 'The solution',
 		'nav.benefits': 'Benefits',
 		'nav.about': 'HCTECH',
+		'nav.aboutPage': 'About us',
+		'nav.team': 'The team',
+		'nav.vision': 'Our vision',
+		'nav.technology': 'The technology',
+		'nav.machine': 'The GLRV II unit',
 		'nav.contact': 'Contact',
+		'nav.study': 'Request an assessment',
 		'rail.0': 'Vapors', 'rail.1': 'GLRV II', 'rail.2': 'Profits', 'rail.3': 'HCTECH',
 		'hero.eyebrow': 'Gasoline vapor recovery · Tunisia',
 		'hero.title': 'The Green Boost to Your Profits.',
@@ -231,10 +243,16 @@ const STR = {
 		'common.problem': 'المشكلة', 'common.benefits': 'المزايا', 'common.next': 'التالي',
 		'boot.request': 'الاتصال بمعالج الرسوم', 'boot.compile': 'إعداد الرسوم المتحركة',
 		'nav.problem': 'المشكلة',
-		'nav.solution': 'GLRV II',
+		'nav.solution': 'الحل',
 		'nav.benefits': 'المزايا',
 		'nav.about': 'HCTECH',
+		'nav.aboutPage': 'من نحن',
+		'nav.team': 'الفريق',
+		'nav.vision': 'رؤيتنا',
+		'nav.technology': 'التكنولوجيا',
+		'nav.machine': 'آلة GLRV II',
 		'nav.contact': 'اتصل بنا',
+		'nav.study': 'اطلب دراسة',
 		'rail.0': 'الأبخرة', 'rail.1': 'GLRV II', 'rail.2': 'الأرباح', 'rail.3': 'HCTECH',
 		'hero.eyebrow': 'استرجاع أبخرة البنزين · تونس',
 		'hero.title': 'دفعة خضراء لأرباحكم.',
@@ -360,6 +378,11 @@ function setLang(lang) {
 
 document.querySelectorAll('.nav__lang button').forEach((b) => {
 	b.addEventListener('click', () => setLang(b.dataset.lang));
+});
+
+const currentPage = location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('.nav__links a').forEach((link) => {
+	if (link.getAttribute('href')?.split('#')[0] === `./${currentPage}`) link.setAttribute('aria-current', 'page');
 });
 
 let initial = 'fr';

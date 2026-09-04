@@ -592,7 +592,8 @@ main { position: relative; z-index: 10; }
 	align-items: center;
 }
 
-.nav__links a {
+.nav__links a,
+.nav__links summary {
 	pointer-events: auto;
 	color: var(--ink-soft);
 	text-decoration: none;
@@ -603,10 +604,63 @@ main { position: relative; z-index: 10; }
 	transition: color 0.25s var(--ease-out);
 }
 
-.nav__links a:hover { color: var(--ink); }
+.nav__links a:hover,
+.nav__links summary:hover { color: var(--ink); }
 
 .nav__links a[aria-current="page"] {
 	color: var(--accent);
+}
+
+.nav__dropdown {
+	position: relative;
+	pointer-events: auto;
+}
+
+.nav__dropdown summary {
+	list-style: none;
+	cursor: pointer;
+}
+
+.nav__dropdown summary::-webkit-details-marker { display: none; }
+
+.nav__dropdown summary::after {
+	content: '⌄';
+	margin-left: 0.35rem;
+	font-size: 0.75em;
+}
+
+.nav__submenu {
+	position: absolute;
+	top: calc(100% + 0.8rem);
+	left: 50%;
+	display: none;
+	min-width: 13rem;
+	padding: 0.65rem;
+	transform: translateX(-50%);
+	background: rgba(5, 7, 10, 0.94);
+	border: 1px solid var(--line);
+	border-radius: 0.8rem;
+	backdrop-filter: blur(14px);
+	box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.3);
+}
+
+.nav__submenu a {
+	display: block;
+	padding: 0.65rem 0.75rem;
+	white-space: nowrap;
+	font-size: 0.82rem;
+	text-transform: none;
+}
+
+.nav__dropdown[open] .nav__submenu,
+.nav__dropdown:hover .nav__submenu,
+.nav__dropdown:focus-within .nav__submenu { display: block; }
+
+.nav__cta {
+	padding: 0.6rem 0.9rem;
+	border-radius: 999px;
+	background: var(--accent);
+	color: #0a1206 !important;
 }
 
 .nav__lang {
@@ -642,13 +696,13 @@ main { position: relative; z-index: 10; }
 	.nav__links {
 		order: 3;
 		width: 100%;
-		overflow-x: auto;
-		gap: 1.2rem;
+		flex-wrap: wrap;
+		gap: 0.8rem 1.2rem;
 		padding: 0.55rem 0;
-		scrollbar-width: none;
 	}
-	.nav__links::-webkit-scrollbar { display: none; }
-	.nav__links a { white-space: nowrap; font-size: 0.82rem; }
+	.nav__links a,
+	.nav__links summary { white-space: nowrap; font-size: 0.82rem; }
+	.nav__submenu { left: 0; transform: none; }
 }
 
 /* --- buttons --- */
