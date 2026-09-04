@@ -1007,6 +1007,118 @@ body.no-webgpu .atmosphere {
 	font-size: 0.85rem;
 }
 
+/* --- problem page --- */
+.problem-page .detail-page__inner { display: grid; gap: clamp(5rem, 10vw, 9rem); }
+.problem-section { scroll-margin-top: 8rem; }
+.problem-section .page-title { max-width: 14ch; }
+
+.cause-grid,
+.impact-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1rem;
+	margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.problem-card,
+.impact-card,
+.risk-panel,
+.problem-answer {
+	border: 1px solid var(--line);
+	border-radius: 1.2rem;
+	background: rgba(246, 243, 236, 0.045);
+}
+
+.problem-card { padding: clamp(1.25rem, 2.5vw, 2rem); }
+.problem-card h3,
+.impact-card h3,
+.risk-panel h2 { margin: 0.9rem 0 0.4rem; font-size: clamp(1.1rem, 1.6vw, 1.45rem); }
+.problem-card p,
+.impact-card p,
+.risk-panel li,
+.problem-flow__copy > p,
+.problem-answer > p { color: var(--ink-soft); }
+
+.problem-icon {
+	display: grid;
+	place-items: center;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	background: color-mix(in srgb, var(--accent) 14%, transparent);
+	color: var(--accent);
+}
+
+.problem-icon svg {
+	width: 1.45rem;
+	height: 1.45rem;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.7;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.problem-flow {
+	display: grid;
+	grid-template-columns: minmax(16rem, 0.7fr) minmax(0, 1.3fr);
+	gap: clamp(2rem, 5vw, 5rem);
+	align-items: center;
+}
+
+.problem-diagram {
+	margin: 0;
+	overflow: hidden;
+	border: 1px solid var(--line);
+	border-radius: 1.2rem;
+	background: #f4f5f2;
+}
+
+.problem-diagram img { display: block; width: 100%; height: auto; }
+.problem-diagram figcaption { padding: 0.9rem 1.1rem; background: #0d120c; color: var(--ink-soft); font-size: 0.78rem; }
+
+.flow-legend { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; margin-top: 1.5rem; font-size: 0.76rem; color: var(--ink-soft); }
+.flow-legend span { display: flex; align-items: center; gap: 0.45rem; }
+.flow-legend i { width: 0.65rem; height: 0.65rem; border-radius: 50%; }
+.flow-legend .is-vapor { background: #a943a9; }
+.flow-legend .is-fuel { background: var(--accent); }
+.flow-legend .is-air { background: #d8ead0; }
+
+.impact-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.impact-card { min-height: 15rem; padding: clamp(1.3rem, 2.5vw, 2rem); display: flex; flex-direction: column; justify-content: space-between; }
+.impact-card__number { font: 500 0.7rem/1 var(--mono); letter-spacing: 0.16em; color: var(--accent); }
+.impact-card--planet { background: rgba(123, 193, 67, 0.08); }
+.impact-card--health { background: rgba(240, 131, 34, 0.08); }
+
+.risk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.risk-panel { padding: clamp(1.5rem, 3.5vw, 3rem); }
+.risk-panel .eyebrow { margin: 1.4rem 0 0; }
+.risk-panel h2 { max-width: 14ch; font-family: var(--display); font-size: clamp(2rem, 4vw, 4rem); font-weight: 400; line-height: 0.98; }
+.risk-panel ul { padding-left: 1.1rem; margin: 1.5rem 0; display: grid; gap: 0.6rem; }
+.source-links { display: flex; gap: 1rem; }
+.source-link,
+.text-link { color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); font-size: 0.78rem; }
+
+.problem-answer { padding: clamp(1.6rem, 4vw, 3.5rem); background: linear-gradient(135deg, rgba(123, 193, 67, 0.12), rgba(246, 243, 236, 0.035)); }
+.answer-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; margin: 2rem 0; }
+.answer-steps span { display: flex; align-items: center; gap: 0.7rem; padding: 0.85rem; border-radius: 0.8rem; background: rgba(5, 7, 10, 0.38); color: var(--ink-soft); font-size: 0.85rem; }
+.answer-steps b { display: grid; place-items: center; flex: 0 0 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--accent); color: #0a1206; }
+.problem-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.4rem; margin-top: 2rem; }
+
+@media (max-width: 900px) {
+	.cause-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.problem-flow { grid-template-columns: 1fr; }
+	.impact-grid { grid-template-columns: 1fr; }
+	.impact-card { min-height: 11rem; }
+	.answer-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+	.cause-grid,
+	.risk-grid,
+	.answer-steps { grid-template-columns: 1fr; }
+}
+
 .page-footer {
 	position: relative;
 	z-index: 10;

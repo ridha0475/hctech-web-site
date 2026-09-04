@@ -21,7 +21,7 @@ if (form) {
 			return;
 		}
 
-		const subject = `Demande GLRV II — ${String(data.company || name).trim()}`;
+		const subject = `Demande GEVLR-II — ${String(data.company || name).trim()}`;
 		const body = [
 			`Nom : ${name}`,
 			`Société / Station : ${String(data.company || '').trim()}`,

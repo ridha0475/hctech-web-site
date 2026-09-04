@@ -1,4 +1,4 @@
-# Site HCTECH — GLRV II
+# Site HCTECH — GEVLR-II
 
 Site statique multilingue prêt pour GitHub Pages. L'animation WebGPU est utilisée
 sur les navigateurs compatibles ; une animation CSS légère prend automatiquement

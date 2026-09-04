@@ -45,7 +45,7 @@ export const STATES = [
 	{
 		id: 'tide',
 		numeral: 'II',
-		name: 'GLRV II',
+		name: 'GEVLR-II',
 		accent: '#7fd7d2',
 
 		skyZenith: '#112a4a',
