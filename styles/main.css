@@ -131,7 +131,9 @@ body.is-live .chrome { opacity: 1; transition: opacity 1.2s var(--ease-out) 0.5s
 	align-items: center;
 	justify-content: space-between;
 	padding: clamp(1.1rem, 2.4vw, 2.1rem) var(--gutter);
-	background: #05070a;
+	background: rgba(5, 7, 10, 0.58);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
 	border-bottom: 1px solid var(--line);
 	mix-blend-mode: normal;
 }
