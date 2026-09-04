@@ -25,7 +25,7 @@ Liste de travail classée par priorité. Les contenus techniques et réglementai
 
 ## Priorité 3 — Qualité du site
 
-- [ ] **Traductions** — terminer et relire l'anglais et l'arabe sur toutes les pages ; plusieurs nouveaux contenus restent uniquement en français.
+- [x] **Traductions** — les 11 pages sont trilingues : 299 clés alignées FR/EN/AR, aucun texte codé en dur. `technologie.html` et `probleme.html` étaient entièrement en français (68 textes), désormais câblées et traduites (relecture croisée : « benzène » rendu البنزول et non البنزين, qui signifie « essence » en arabe et faisait lire « l'essence est cancérogène »). 13 clés mortes supprimées. Reste : relecture humaine par un locuteur natif avant mise en ligne définitive.
 - [ ] **Relecture générale** — uniformiser GEVLR-II/GLRV-II, « évent », « cuve », « vapeur », ponctuation et majuscules.
 - [ ] **Mobile et navigateurs** — vérifier chaque page sur Chrome, Safari, Firefox, iPhone et Android, notamment le menu, les titres et les schémas.
 - [ ] **Accessibilité** — contrôler le clavier, le contraste, le zoom à 200 %, les textes alternatifs et le sens de lecture en arabe.
