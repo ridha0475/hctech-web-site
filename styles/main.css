@@ -1009,9 +1009,16 @@ body.no-webgpu .atmosphere {
 
 .machine-visual-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 2.5rem; }
 .machine-visual-grid .machine-figure { margin-top: 0; }
+.machine-visual-grid .machine-figure img { aspect-ratio: 16 / 10; object-fit: cover; }
+.component-list__title { margin: 2.5rem 0 1rem; font-size: clamp(1.3rem, 2vw, 1.8rem); }
+.component-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.component-list li { display: flex; align-items: center; gap: .9rem; min-height: 4.5rem; padding: 1rem; border: 1px solid var(--line); border-radius: 1rem; background: rgba(246, 243, 236, .045); }
+.component-list b { flex: 0 0 auto; color: var(--gold); font: 600 .82rem/1 var(--mono); letter-spacing: .08em; }
+.component-list span { color: var(--ink); line-height: 1.35; }
 
 @media (max-width: 760px) {
 	.machine-visual-grid { grid-template-columns: 1fr; }
+	.component-list { grid-template-columns: 1fr; }
 }
 
 /* --- problem page --- */
