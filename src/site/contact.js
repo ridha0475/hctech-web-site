@@ -10,7 +10,7 @@ if (form) {
 		const calc = JSON.parse(localStorage.getItem('hctech-calc'));
 		const message = form.querySelector('[name="message"]');
 		if (calc && message && !message.value) {
-			message.value = `Volume vendu estimé : ${calc.volume} L/jour\nVolume de cuve estimé : ${calc.tank} L\n\n`;
+			message.value = `Litres vendus par jour : ${calc.volume}\nVolume de la cuve : ${calc.tank} L\nPrix du litre : ${calc.price} DT\n\n`;
 		}
 	} catch {
 		/* no stored estimate, or localStorage unavailable — leave the form blank */

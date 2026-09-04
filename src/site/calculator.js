@@ -1,51 +1,63 @@
-/** Live estimate of recovered fuel value, from the two range sliders on the Avantages page. */
+/** Estimation de la récupération et de la part station, depuis les trois curseurs. */
 
-const RECOVERY_RATE = 0.005; // 5 ‰ — internal median hypothesis, not field-validated
-const PRICE_PER_LITER = 2.525; // DT, official pump price, essence sans plomb
-const CLIENT_SHARE = 0.4; // per the 60/40 HCTech/exploitant model
+const RECOVERY_RATE = 0.005; // 5 ‰ — hypothèse interne médiane, non validée terrain
+const STATION_SHARE = 0.4; // modèle 60 / 40 HCTECH / exploitant
+const VAT_RATE = 0.19; // TVA 19 %, taux retenu dans le BP
 
-const volumeInput = document.getElementById('calc-volume');
-const tankInput = document.getElementById('calc-tank');
+export function estimate(litersPerDay, pricePerLiter) {
+	const recoveredPerDay = litersPerDay * RECOVERY_RATE;
+	const sharePerDay = recoveredPerDay * pricePerLiter * STATION_SHARE;
+	return {
+		liters: { day: recoveredPerDay, month: recoveredPerDay * 30, year: recoveredPerDay * 365 },
+		share: { day: sharePerDay, month: sharePerDay * 30, year: sharePerDay * 365 },
+		vat: {
+			day: sharePerDay * (VAT_RATE / (1 + VAT_RATE)),
+			month: sharePerDay * 30 * (VAT_RATE / (1 + VAT_RATE)),
+			year: sharePerDay * 365 * (VAT_RATE / (1 + VAT_RATE)),
+		},
+	};
+}
 
-if (volumeInput && tankInput) {
-	const volumeOut = document.getElementById('calc-volume-out');
-	const tankOut = document.getElementById('calc-tank-out');
-	const recoveredOut = document.getElementById('calc-recovered');
-	const monthlyOut = document.getElementById('calc-monthly');
-	const yearlyOut = document.getElementById('calc-yearly');
-	const cta = document.getElementById('calc-cta');
+const priceInput = typeof document !== 'undefined' && document.getElementById('calc-price');
 
-	const fmt = (n) => Math.round(n).toLocaleString('fr-FR');
+if (priceInput) {
+	const volumeInput = document.getElementById('calc-volume');
+	const tankInput = document.getElementById('calc-tank');
+	const el = (id) => document.getElementById(id);
 	const t = (key) => (window.__i18nGet ? window.__i18nGet(key) : key);
 
+	const round = (n) => Math.round(n).toLocaleString('fr-FR');
+	const money = (n) => n.toLocaleString('fr-FR', { minimumFractionDigits: 3, maximumFractionDigits: 3 });
+
 	function update() {
+		const price = Number(priceInput.value);
 		const volume = Number(volumeInput.value);
 		const tank = Number(tankInput.value);
+		const r = estimate(volume, price);
 
-		const recoveredPerDay = volume * RECOVERY_RATE;
-		const clientPerDay = recoveredPerDay * PRICE_PER_LITER * CLIENT_SHARE;
+		const liters = t('calc.unit.liters');
+		const dt = t('calc.unit.dt');
+		const ttc = t('calc.unit.dtTtc');
+		const vatLabel = t('calc.vatLabel');
 
-		const literDay = t('calc.unit.literDay');
-		const liter = t('calc.unit.liter');
-		const currency = t('calc.unit.currency');
+		el('calc-price-out').textContent = `${money(price)} ${dt}`;
+		el('calc-volume-out').textContent = `${round(volume)} ${liters}`;
+		el('calc-tank-out').textContent = `${round(tank)} ${liters}`;
 
-		volumeOut.textContent = `${fmt(volume)} ${literDay}`;
-		tankOut.textContent = `${fmt(tank)} ${liter}`;
-		recoveredOut.textContent = `${fmt(recoveredPerDay)} ${literDay}`;
-		monthlyOut.textContent = `${fmt(clientPerDay * 30)} ${currency}`;
-		yearlyOut.textContent = `${fmt(clientPerDay * 365)} ${currency}`;
+		for (const period of ['day', 'month', 'year']) {
+			el(`calc-liters-${period}`).textContent = `${round(r.liters[period])} ${liters}`;
+			el(`calc-share-${period}`).textContent = `${round(r.share[period])} ${ttc}`;
+			el(`calc-vat-${period}`).textContent = `${vatLabel} ${round(r.vat[period])} ${dt}`;
+		}
 
-		if (cta) {
-			try {
-				localStorage.setItem('hctech-calc', JSON.stringify({ volume, tank }));
-			} catch {
-				/* localStorage unavailable (private mode, etc.) — the estimate still displays fine */
-			}
+		try {
+			localStorage.setItem('hctech-calc', JSON.stringify({ price, volume, tank }));
+		} catch {
+			/* localStorage indisponible (navigation privée) — l'estimation s'affiche quand même */
 		}
 	}
 
-	volumeInput.addEventListener('input', update);
-	tankInput.addEventListener('input', update);
+	for (const input of [priceInput, volumeInput, tankInput]) input.addEventListener('input', update);
 	window.addEventListener('hctech:lang', update);
 	update();
 }

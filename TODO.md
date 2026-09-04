@@ -16,10 +16,10 @@ Liste de travail classée par priorité. Les contenus techniques et réglementai
 
 ## Priorité 2 — Conversion commerciale
 
-- [x] **Demande d'étude** — le calculateur (page Avantages) transmet volume vendu/jour et volume de cuve au message de contact pré-rempli. Reste à ajouter : fréquence des livraisons, type de carburant, localisation.
+- [x] **Demande d'étude** — le calculateur (page dédiée) transmet prix du litre, volume vendu/jour et volume de cuve au message de contact pré-rempli. Reste à ajouter : fréquence des livraisons, type de carburant, localisation.
 - [ ] **Formulaire réellement envoyé** — décision du 2026-09-04 : le client garde le `mailto:` actuel (pas de service tiers type FormSubmit/Formspree). Reste peu fiable (dépend de l'app mail du visiteur), sans accusé de réception ni protection antispam — à revoir si les demandes reçues sont insuffisantes.
 - [ ] **Coordonnées professionnelles** — confirmer le téléphone, l'adresse, la raison sociale et remplacer l'adresse Gmail par une adresse du domaine HCTECH si disponible.
-- [x] **Étude de rentabilité** — calculateur interactif ajouté sur la page Avantages (2 curseurs : volume vendu/jour, volume de cuve). Le taux de récupération (5 ‰) et le partage 60/40 sont des hypothèses internes non validées terrain, affichées avec un disclaimer ; décision du client (2026-09-04) de montrer un chiffre unique plutôt qu'une fourchette.
+- [x] **Étude de rentabilité** — calculateur sur sa page dédiée (`calculateur.html`, entrée de menu propre) : 3 curseurs gradués (prix du litre, litres vendus/jour, volume de cuve) et 2 blocs de résultats (litres récupérés jour/mois/an ; part station en DT TTC dont TVA 19 %). Taux 5 ‰, part 40 % et TVA 19 % sont des hypothèses internes non validées terrain, affichées avec disclaimer. Calcul couvert par `src/site/calculator.test.mjs` (node).
 - [ ] **Preuves terrain** — ajouter une galerie de photos réelles, une installation type et, lorsqu'ils seront disponibles, un témoignage ou un cas client autorisé.
 - [ ] **Appels à l'action** — harmoniser les boutons vers « Demander une étude » et suivre les demandes reçues.
 
