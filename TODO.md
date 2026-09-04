@@ -17,7 +17,7 @@ Liste de travail classée par priorité. Les contenus techniques et réglementai
 ## Priorité 2 — Conversion commerciale
 
 - [ ] **Demande d'étude** — ajouter les informations utiles au calcul : nombre et volume des cuves, débit annuel, fréquence des livraisons, type de carburant et localisation.
-- [ ] **Formulaire réellement envoyé** — remplacer l'ouverture de l'application e-mail par une réception fiable avec accusé de réception et protection antispam.
+- [ ] **Formulaire réellement envoyé** — décision du 2026-09-04 : le client garde le `mailto:` actuel (pas de service tiers type FormSubmit/Formspree). Reste peu fiable (dépend de l'app mail du visiteur), sans accusé de réception ni protection antispam — à revoir si les demandes reçues sont insuffisantes.
 - [ ] **Coordonnées professionnelles** — confirmer le téléphone, l'adresse, la raison sociale et remplacer l'adresse Gmail par une adresse du domaine HCTECH si disponible.
 - [ ] **Étude de rentabilité** — préparer un exemple simple avec hypothèses clairement affichées, sans promettre un résultat non vérifié.
 - [ ] **Preuves terrain** — ajouter une galerie de photos réelles, une installation type et, lorsqu'ils seront disponibles, un témoignage ou un cas client autorisé.
