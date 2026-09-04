@@ -6,7 +6,7 @@ Liste de travail classée par priorité. Les contenus techniques et réglementai
 
 - [ ] **Page L'équipe** — fournir les noms, fonctions, biographies courtes et portraits validés.
 - [ ] **Page Notre vision** — définir la mission HCTECH, l'ambition pour la Tunisie et 3 engagements concrets.
-- [ ] **Page À propos** — compléter l'histoire de HCTECH, son rôle exact, sa zone d'intervention et son offre de services.
+- [x] **Page À propos** — compléter l'histoire de HCTECH, son rôle exact, sa zone d'intervention et son offre de services.
 - [ ] **Fiche technique GEVLR-II** — intégrer les données officielles : dimensions, poids, débit, puissance, consommation, capacité de récupération, conditions d'exploitation et maintenance.
 - [ ] **Composants de la vue éclatée** — faire valider par le fabricant les six désignations et leur position dans l'illustration avant de présenter celle-ci comme une vue technique contractuelle.
 - [ ] **Certifications** — récupérer les PDF officiels, vérifier le modèle couvert, la référence, l'organisme, la date et le périmètre exact de chaque certificat.
