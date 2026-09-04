@@ -21,7 +21,7 @@ Liste de travail classée par priorité. Les contenus techniques et réglementai
 - [ ] **Coordonnées professionnelles** — confirmer le téléphone, l'adresse, la raison sociale et remplacer l'adresse Gmail par une adresse du domaine HCTECH si disponible.
 - [x] **Étude de rentabilité** — calculateur sur sa page dédiée (`calculateur.html`, entrée de menu propre) : 3 curseurs gradués (prix du litre, litres vendus/jour, volume de cuve) et 2 blocs de résultats (litres récupérés jour/mois/an ; part station en DT TTC dont TVA 19 %). Taux 5 ‰, part 40 % et TVA 19 % sont des hypothèses internes non validées terrain, affichées avec disclaimer. Calcul couvert par `src/site/calculator.test.mjs` (node).
 - [ ] **Preuves terrain** — ajouter une galerie de photos réelles, une installation type et, lorsqu'ils seront disponibles, un témoignage ou un cas client autorisé.
-- [ ] **Appels à l'action** — harmoniser les boutons vers « Demander une étude » et suivre les demandes reçues.
+- [x] **Appels à l'action** — libellé unique « Demander une étude » partout, toutes les occurrences pointent vers `contact.html#contact-form` (descend au formulaire) ; « Contact » reste un lien discret vers le haut de la page. Reste à faire : suivre les demandes reçues.
 
 ## Priorité 3 — Qualité du site
 
