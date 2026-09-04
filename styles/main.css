@@ -1248,6 +1248,20 @@ body.no-webgpu .atmosphere {
 .benefits-next { padding: clamp(1.6rem, 4vw, 3.5rem); border: 1px solid var(--line); border-radius: 1.2rem; background: rgba(246, 243, 236, 0.045); }
 .benefits-next .btn { margin-top: 2rem; }
 
+.calc__sliders { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.calc__slider { display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem; color: var(--ink-soft); }
+.calc__slider input[type="range"] { accent-color: var(--accent); width: 100%; }
+.calc__slider output { font: 500 1rem/1 var(--mono); color: var(--ink); }
+.calc__results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; }
+.calc__results article { padding: 1.2rem; border: 1px solid var(--line); border-radius: 1rem; background: rgba(5, 7, 10, 0.3); }
+.calc__results b { display: block; font-family: var(--display); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 400; color: var(--accent); }
+.calc__results span { color: var(--ink-soft); font-size: 0.8rem; }
+.calc__disclaimer { margin-top: 1.5rem; color: var(--ink-soft); font-size: 0.78rem; max-width: 60ch; }
+
+@media (max-width: 640px) {
+	.calc__sliders, .calc__results { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 800px) {
 	.benefits-grid,
 	.atex-panel { grid-template-columns: 1fr; }

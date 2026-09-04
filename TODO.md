@@ -16,10 +16,10 @@ Liste de travail classée par priorité. Les contenus techniques et réglementai
 
 ## Priorité 2 — Conversion commerciale
 
-- [ ] **Demande d'étude** — ajouter les informations utiles au calcul : nombre et volume des cuves, débit annuel, fréquence des livraisons, type de carburant et localisation.
+- [x] **Demande d'étude** — le calculateur (page Avantages) transmet volume vendu/jour et volume de cuve au message de contact pré-rempli. Reste à ajouter : fréquence des livraisons, type de carburant, localisation.
 - [ ] **Formulaire réellement envoyé** — décision du 2026-09-04 : le client garde le `mailto:` actuel (pas de service tiers type FormSubmit/Formspree). Reste peu fiable (dépend de l'app mail du visiteur), sans accusé de réception ni protection antispam — à revoir si les demandes reçues sont insuffisantes.
 - [ ] **Coordonnées professionnelles** — confirmer le téléphone, l'adresse, la raison sociale et remplacer l'adresse Gmail par une adresse du domaine HCTECH si disponible.
-- [ ] **Étude de rentabilité** — préparer un exemple simple avec hypothèses clairement affichées, sans promettre un résultat non vérifié.
+- [x] **Étude de rentabilité** — calculateur interactif ajouté sur la page Avantages (2 curseurs : volume vendu/jour, volume de cuve). Le taux de récupération (5 ‰) et le partage 60/40 sont des hypothèses internes non validées terrain, affichées avec un disclaimer ; décision du client (2026-09-04) de montrer un chiffre unique plutôt qu'une fourchette.
 - [ ] **Preuves terrain** — ajouter une galerie de photos réelles, une installation type et, lorsqu'ils seront disponibles, un témoignage ou un cas client autorisé.
 - [ ] **Appels à l'action** — harmoniser les boutons vers « Demander une étude » et suivre les demandes reçues.
 

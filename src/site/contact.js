@@ -6,6 +6,16 @@ if (form) {
 	const status = form.querySelector('[data-form-status]');
 	const t = (key) => (window.__i18nGet ? window.__i18nGet(key) : key);
 
+	try {
+		const calc = JSON.parse(localStorage.getItem('hctech-calc'));
+		const message = form.querySelector('[name="message"]');
+		if (calc && message && !message.value) {
+			message.value = `Volume vendu estimé : ${calc.volume} L/jour\nVolume de cuve estimé : ${calc.tank} L\n\n`;
+		}
+	} catch {
+		/* no stored estimate, or localStorage unavailable — leave the form blank */
+	}
+
 	form.addEventListener('submit', (event) => {
 		event.preventDefault();
 		status.className = 'cform__status';
