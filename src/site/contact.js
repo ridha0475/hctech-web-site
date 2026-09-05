@@ -10,7 +10,8 @@ if (form) {
 		const calc = JSON.parse(localStorage.getItem('hctech-calc'));
 		const message = form.querySelector('[name="message"]');
 		if (calc && message && !message.value) {
-			message.value = `Litres vendus par jour : ${calc.volume}\nVolume de la cuve : ${calc.tank} L\nPrix du litre : ${calc.price} DT\n\n`;
+			const l = t('calc.unit.liters');
+			message.value = `${t('calc.volume.label')} : ${calc.volume} ${l}\n${t('calc.tank.label')} : ${calc.tank} ${l}\n${t('calc.price.label')} : ${calc.price} ${t('calc.unit.dt')}\n\n`;
 		}
 	} catch {
 		/* no stored estimate, or localStorage unavailable — leave the form blank */
@@ -37,6 +38,9 @@ if (form) {
 			`Société / Station : ${String(data.company || '').trim()}`,
 			`Téléphone : ${String(data.phone || '').trim()}`,
 			`E-mail : ${email}`,
+			`Localisation : ${String(data.location || '').trim()}`,
+			`Carburants : ${String(data.fuel || '').trim()}`,
+			`Livraisons : ${String(data.delivery || '').trim()}`,
 			'',
 			message,
 		].join('\n');

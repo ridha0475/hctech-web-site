@@ -761,6 +761,7 @@ main { position: relative; z-index: 10; }
 }
 
 .cform input,
+.cform select,
 .cform textarea {
 	appearance: none;
 	width: 100%;
@@ -774,7 +775,10 @@ main { position: relative; z-index: 10; }
 	resize: vertical;
 }
 
+.cform select { appearance: auto; padding-inline: 0.7rem; }
+
 .cform input:focus,
+.cform select:focus,
 .cform textarea:focus {
 	outline: none;
 	border-color: var(--accent);
@@ -782,6 +786,7 @@ main { position: relative; z-index: 10; }
 }
 
 .cform input:focus-visible,
+.cform select:focus-visible,
 .cform textarea:focus-visible,
 .btn:focus-visible,
 .nav a:focus-visible,

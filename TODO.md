@@ -16,7 +16,7 @@ Liste de travail classée par priorité. Les contenus techniques et réglementai
 
 ## Priorité 2 — Conversion commerciale
 
-- [x] **Demande d'étude** — le calculateur (page dédiée) transmet prix du litre, volume vendu/jour et volume de cuve au message de contact pré-rempli. Reste à ajouter : fréquence des livraisons, type de carburant, localisation.
+- [x] **Demande d'étude** — le calculateur (page dédiée) transmet prix du litre, volume vendu/jour et volume de cuve au message de contact pré-rempli. Le formulaire de contact demande aussi les carburants distribués, la fréquence des livraisons et la localisation de la station (2026-09-05).
 - [ ] **Formulaire réellement envoyé** — décision du 2026-09-04 : le client garde le `mailto:` actuel (pas de service tiers type FormSubmit/Formspree). Reste peu fiable (dépend de l'app mail du visiteur), sans accusé de réception ni protection antispam — à revoir si les demandes reçues sont insuffisantes.
 - [ ] **Coordonnées professionnelles** — téléphone tranché le 2026-09-04 : **+216 50 329 252** fait foi (le `wa.me/21658240640` du plan initial est caduc, ne pas le réintroduire). Raison sociale et siège confirmés et publiés dans les mentions légales. Reste : remplacer l'adresse Gmail par une adresse du domaine HCTECH quand le domaine sera actif.
 - [x] **Étude de rentabilité** — calculateur sur sa page dédiée (`calculateur.html`, entrée de menu propre) : 3 curseurs gradués (prix du litre, litres vendus/jour, volume de cuve) et 2 blocs de résultats (litres récupérés jour/mois/an ; part station en DT TTC dont TVA 19 %). Taux 5 ‰, part 40 % et TVA 19 % sont des hypothèses internes non validées terrain, affichées avec disclaimer. Calcul couvert par `src/site/calculator.test.mjs` (node).
