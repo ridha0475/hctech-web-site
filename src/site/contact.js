@@ -1,27 +1,7 @@
-/** GitHub Pages has no backend: each form opens a pre-filled email. */
+/** GitHub Pages has no backend: each page's form opens a pre-filled email. */
 
 const t = (key) => (window.__i18nGet ? window.__i18nGet(key) : key);
 const EMAIL_INVALID = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-
-const sujet = new URLSearchParams(location.search).get('sujet') || 'contact';
-const FORMS = { etude: 'form-etude', intervention: 'form-intervention', contact: 'form-contact' };
-const activeId = FORMS[sujet] || FORMS.contact;
-
-for (const [key, id] of Object.entries(FORMS)) {
-	const form = document.getElementById(id);
-	if (form) form.hidden = id !== activeId;
-}
-
-if (sujet === 'etude' || sujet === 'intervention') {
-	const titleEl = document.querySelector('[data-i18n="contact.title"]');
-	const ledeEl = document.querySelector('[data-i18n="contact.lede"]');
-	if (titleEl && ledeEl) {
-		titleEl.dataset.i18n = `contact.${sujet}.title`;
-		ledeEl.dataset.i18n = `contact.${sujet}.lede`;
-		titleEl.textContent = t(titleEl.dataset.i18n);
-		ledeEl.textContent = t(ledeEl.dataset.i18n);
-	}
-}
 
 /** Wire a form: validate(data) gates submission, subject(data)/lines(data) build the mailto. */
 function wireForm(id, { validate, subject, lines }) {
@@ -63,6 +43,7 @@ wireForm('form-etude', {
 		`Localisation (Google Maps) : ${d.mapsLink}`,
 		`Adresse : ${d.street}, ${d.city}, ${d.governorate}`,
 		`Sans plomb vendu en moyenne/jour (6 derniers mois) : ${d.dailyVolume} L`,
+		`Volume de la cuve de stockage : ${d.tankVolume} L`,
 		`Fréquence des livraisons : ${d.delivery}`,
 		'',
 		d.message,
@@ -94,19 +75,15 @@ wireForm('form-contact', {
 	],
 });
 
-// Coming from the calculator: prefill the étude form's daily volume + message.
+// Coming from the calculator: prefill the étude form's volume fields only — never the message.
 try {
 	const calc = JSON.parse(localStorage.getItem('hctech-calc') || 'null');
 	const etudeForm = document.getElementById('form-etude');
 	if (calc && etudeForm) {
 		const volumeInput = etudeForm.querySelector('[name="dailyVolume"]');
 		if (volumeInput && !volumeInput.value) volumeInput.value = calc.volume;
-
-		const message = etudeForm.querySelector('[name="message"]');
-		if (message && !message.value) {
-			const l = t('calc.unit.liters');
-			message.value = `${t('calc.tank.label')} : ${calc.tank} ${l}\n${t('calc.price.label')} : ${calc.price} ${t('calc.unit.dt')}\n\n`;
-		}
+		const tankInput = etudeForm.querySelector('[name="tankVolume"]');
+		if (tankInput && !tankInput.value) tankInput.value = calc.tank;
 	}
 } catch {
 	/* no stored estimate, or localStorage unavailable — leave the form blank */
