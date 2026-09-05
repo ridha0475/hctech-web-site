@@ -1224,24 +1224,32 @@ body.no-webgpu .atmosphere {
 .technology-steps {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 1rem;
+	gap: 2.4rem;
 	margin-top: clamp(2rem, 4vw, 3.5rem);
 }
 
 .technology-card {
 	position: relative;
-	min-height: 18rem;
-	padding: clamp(1.4rem, 3vw, 2.4rem);
+	padding: clamp(1rem, 2vw, 1.35rem);
 	border: 1px solid var(--line);
-	border-radius: 1.2rem;
+	border-radius: 1rem;
 	background: rgba(246, 243, 236, 0.045);
 }
 
-.technology-card .problem-icon { margin-top: 2.5rem; }
-.technology-card h3 { margin: 1rem 0 0.5rem; font-size: clamp(1.2rem, 2vw, 1.65rem); }
+.technology-card .problem-icon { width: 2.4rem; height: 2.4rem; }
+.technology-card .problem-icon svg { width: 1.2rem; height: 1.2rem; }
+.technology-card h3 { margin: 0.75rem 0 0.35rem; font-size: clamp(1rem, 1.4vw, 1.2rem); }
+.technology-card p { font-size: 0.82rem; line-height: 1.55; }
 .technology-card p,
 .technology-cycle > div:first-child > p { color: var(--ink-soft); }
-.technology-number { position: absolute; top: 1.4rem; right: 1.4rem; font: 500 0.7rem/1 var(--mono); letter-spacing: 0.16em; color: var(--accent); }
+.technology-number { position: absolute; top: 1rem; right: 1rem; font: 500 0.7rem/1 var(--mono); letter-spacing: 0.16em; color: var(--accent); }
+
+/* flèches de séquence entre les étapes (→ dans la rangée, ↓ en fin de rangée) */
+.technology-card::after { content: '→'; position: absolute; top: 50%; inset-inline-end: -1.7rem; transform: translateY(-50%); color: var(--accent); font-size: 1.1rem; line-height: 1; }
+.technology-card:nth-child(3n)::after { content: '↓'; top: auto; bottom: -1.75rem; inset-inline-end: auto; left: 50%; transform: translateX(-50%); }
+.technology-card:last-child::after { content: none; }
+[dir="rtl"] .technology-card::after,
+[dir="rtl"] .cycle-diagram i { scale: -1 1; }
 
 .technology-cycle {
 	padding: clamp(1.6rem, 4vw, 3.5rem);
@@ -1255,16 +1263,13 @@ body.no-webgpu .atmosphere {
 .cycle-diagram span { display: grid; place-items: center; min-height: 7rem; padding: 1rem; border: 1px solid var(--line); border-radius: 1rem; background: rgba(5, 7, 10, 0.48); text-align: center; font-size: 0.85rem; }
 .cycle-diagram i { color: var(--accent); font-style: normal; font-size: 1.4rem; }
 
-.technology-benefits { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
-.technology-benefits span { padding: 0.85rem 1rem; border: 1px solid var(--line); border-radius: 999px; background: rgba(246, 243, 236, 0.045); color: var(--ink-soft); font-size: 0.82rem; }
-.technology-benefits span::before { content: '✓'; margin-right: 0.6rem; color: var(--accent); }
-
 .technology-next { padding: clamp(1.6rem, 4vw, 3.5rem); border: 1px solid var(--line); border-radius: 1.2rem; background: rgba(246, 243, 236, 0.045); }
 .technology-next .btn { margin-top: 2rem; }
 
 @media (max-width: 900px) {
 	.technology-steps { grid-template-columns: 1fr; }
-	.technology-card { min-height: 14rem; }
+	.technology-steps .technology-card::after { content: '↓'; top: auto; bottom: -1.75rem; inset-inline-end: auto; left: 50%; transform: translateX(-50%); }
+	.technology-steps .technology-card:last-child::after { content: none; }
 	.cycle-diagram { grid-template-columns: 1fr; }
 	.cycle-diagram i { transform: rotate(90deg); justify-self: center; }
 }
