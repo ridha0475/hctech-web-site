@@ -1121,18 +1121,21 @@ let initial = 'fr';
 try { initial = localStorage.getItem('hctech-lang') || 'fr'; } catch {}
 setLang(initial);
 
-// Hover-to-open nav dropdowns, driven from JS rather than pure CSS :hover:
-// a bare :hover rule loses state the instant the cursor crosses the (however
-// small) gap between the button and its submenu, so a fast or slightly
-// diagonal mouse path can close the menu before it's reached. A short
-// close-delay makes that crossing forgiving.
-document.querySelectorAll('.nav__dropdown').forEach((dd) => {
-	let closeTimer = null;
-	dd.addEventListener('mouseenter', () => {
-		clearTimeout(closeTimer);
-		dd.classList.add('is-hover-open');
+// Survol des sous-menus : on bascule details.open, pas une classe CSS. Tant que
+// <details> est fermé Chrome pose content-visibility:hidden sur
+// ::details-content, donc aucune règle CSS (:hover, :focus-within, classe) ne
+// peut rendre le sous-menu visible — seul [open] le peut. Le délai de fermeture
+// rend indulgent le trajet diagonal souris → sous-menu. Souris uniquement : sur
+// tactile, mouseenter suivi du click natif rouvrirait/refermerait le menu.
+if (matchMedia('(hover: hover)').matches) {
+	document.querySelectorAll('.nav__dropdown').forEach((dd) => {
+		let closeTimer = null;
+		dd.addEventListener('mouseenter', () => {
+			clearTimeout(closeTimer);
+			dd.open = true;
+		});
+		dd.addEventListener('mouseleave', () => {
+			closeTimer = setTimeout(() => { dd.open = false; }, 250);
+		});
 	});
-	dd.addEventListener('mouseleave', () => {
-		closeTimer = setTimeout(() => dd.classList.remove('is-hover-open'), 250);
-	});
-});
+}

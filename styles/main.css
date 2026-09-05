@@ -675,10 +675,12 @@ main { position: relative; z-index: 10; }
 
 .nav__submenu a:hover { color: var(--accent); text-decoration-color: currentColor; }
 
-.nav__dropdown[open] .nav__submenu,
-.nav__dropdown:hover .nav__submenu,
-.nav__dropdown.is-hover-open .nav__submenu,
-.nav__dropdown:focus-within .nav__submenu { display: flex; }
+/* Seul [open] peut afficher le sous-menu : tant que <details> est fermé,
+   Chrome pose content-visibility:hidden sur ::details-content, ce qui empêche
+   tout rendu des descendants quel que soit leur display. Une règle :hover ou
+   une classe .is-hover-open matcherait mais n'afficherait rien — le survol est
+   donc piloté en JS via details.open (voir src/site/i18n.js). */
+.nav__dropdown[open] .nav__submenu { display: flex; }
 
 .nav:has(.nav__dropdown[open]) { padding-bottom: 4.5rem; }
 
