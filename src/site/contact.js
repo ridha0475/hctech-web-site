@@ -45,6 +45,7 @@ wireForm('form-etude', {
 		`Sans plomb vendu en moyenne/jour (6 derniers mois) : ${d.dailyVolume} L`,
 		`Volume de la cuve de stockage : ${d.tankVolume} L`,
 		`Fréquence des livraisons : ${d.delivery}`,
+		`Récupération des vapeurs à la livraison (Stage I) : ${d.stage1}`,
 		'',
 		d.message,
 	],
