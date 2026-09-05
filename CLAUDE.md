@@ -3,18 +3,22 @@
 - Chaque `git push origin main` déclenche automatiquement le déploiement
   GitHub Pages (`.github/workflows/deploy.yml`) — pas d'étape manuelle
   séparée. Site en ligne : https://ridha0475.github.io/hctech-web-site/
-- Consigne du client (2026-09-05) : après chaque changement confirmé,
-  committer et pousser sur `main` sans redemander confirmation à chaque
-  fois, pour qu'il contrôle le résultat sur Chrome. Continuer à vérifier
-  localement dans le navigateur avant de pousser.
+- Après chaque changement confirmé, committer et pousser sur `main` sans
+  redemander confirmation à chaque fois : la relecture se fait sur le site
+  déployé, dans Chrome. Vérifier localement dans le navigateur avant de
+  pousser (décision du 2026-09-05).
+- **Commits complets** : chaque commit embarque tous les fichiers modifiés
+  du dépôt, `CLAUDE.md` et `TODO.md` compris. Relire `git status` avant de
+  committer et ne rien laisser de côté — sinon les notes et le suivi
+  divergent de ce qui est réellement publié.
 - Cache-busting : toute modif de `styles/main.css`, `src/site/i18n.js`
   ou `src/site/contact.js` doit bumper son `?v=N` dans les pages HTML qui
   la chargent, sinon les visiteurs gardent l'ancienne version en cache.
 - Sous-menus du header (`.nav__submenu`) : liens en ligne SANS fond ni
-  bordure ni ombre de conteneur (le client a explicitement refusé la
-  « bulle » le 2026-09-05) — juste du texte souligné avec `text-shadow`
-  pour la lisibilité sur le fond animé, couleur `var(--accent)` au survol.
-- Ne pas vérifier/tester l'affichage mobile pour l'instant (consigne du
+  bordure ni ombre de conteneur — la « bulle » de fond a été écartée le
+  2026-09-05 ; juste du texte souligné avec `text-shadow` pour la
+  lisibilité sur le fond animé, couleur `var(--accent)` au survol.
+- Ne pas vérifier/tester l'affichage mobile pour l'instant (décision du
   2026-09-05) : on finit le desktop d'abord, la passe mobile viendra
   ensuite séparément.
 - **Survol des sous-menus du header : RÉSOLU** (2026-09-05). Cause racine :
