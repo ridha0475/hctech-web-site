@@ -1120,3 +1120,19 @@ document.querySelectorAll('.nav__links a').forEach((link) => {
 let initial = 'fr';
 try { initial = localStorage.getItem('hctech-lang') || 'fr'; } catch {}
 setLang(initial);
+
+// Hover-to-open nav dropdowns, driven from JS rather than pure CSS :hover:
+// a bare :hover rule loses state the instant the cursor crosses the (however
+// small) gap between the button and its submenu, so a fast or slightly
+// diagonal mouse path can close the menu before it's reached. A short
+// close-delay makes that crossing forgiving.
+document.querySelectorAll('.nav__dropdown').forEach((dd) => {
+	let closeTimer = null;
+	dd.addEventListener('mouseenter', () => {
+		clearTimeout(closeTimer);
+		dd.classList.add('is-hover-open');
+	});
+	dd.addEventListener('mouseleave', () => {
+		closeTimer = setTimeout(() => dd.classList.remove('is-hover-open'), 250);
+	});
+});

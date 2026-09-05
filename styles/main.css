@@ -677,6 +677,7 @@ main { position: relative; z-index: 10; }
 
 .nav__dropdown[open] .nav__submenu,
 .nav__dropdown:hover .nav__submenu,
+.nav__dropdown.is-hover-open .nav__submenu,
 .nav__dropdown:focus-within .nav__submenu { display: flex; }
 
 .nav:has(.nav__dropdown[open]) { padding-bottom: 4.5rem; }
