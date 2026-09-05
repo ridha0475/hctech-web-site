@@ -7,11 +7,19 @@ if (form) {
 	const t = (key) => (window.__i18nGet ? window.__i18nGet(key) : key);
 
 	try {
-		const calc = JSON.parse(localStorage.getItem('hctech-calc'));
 		const message = form.querySelector('[name="message"]');
-		if (calc && message && !message.value) {
-			const l = t('calc.unit.liters');
-			message.value = `${t('calc.volume.label')} : ${calc.volume} ${l}\n${t('calc.tank.label')} : ${calc.tank} ${l}\n${t('calc.price.label')} : ${calc.price} ${t('calc.unit.dt')}\n\n`;
+		if (message && !message.value) {
+			const lines = [];
+			const sujet = new URLSearchParams(location.search).get('sujet');
+			if (sujet === 'intervention') lines.push(t('form.prefill.intervention'));
+			else if (sujet === 'reclamation') lines.push(t('form.prefill.complaint'));
+
+			const calc = JSON.parse(localStorage.getItem('hctech-calc') || 'null');
+			if (calc) {
+				const l = t('calc.unit.liters');
+				lines.push(`${t('calc.volume.label')} : ${calc.volume} ${l}\n${t('calc.tank.label')} : ${calc.tank} ${l}\n${t('calc.price.label')} : ${calc.price} ${t('calc.unit.dt')}\n\n`);
+			}
+			if (lines.length) message.value = lines.join('');
 		}
 	} catch {
 		/* no stored estimate, or localStorage unavailable — leave the form blank */
