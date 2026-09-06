@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ridha0475.github.io/hctech-web-site/sitemap.xml
