@@ -55,15 +55,22 @@
   cliquable ajouté dans le header doit porter `pointer-events: auto`, sinon il
   est parfaitement visible et parfaitement intappable. Constaté le 2026-09-06
   en ajoutant le bouton hamburger.
-- **Passe mobile en cours depuis le 2026-09-06** — remplace la consigne du
-  2026-09-05 qui disait de ne pas tester le mobile. Constat mesuré sur les 14
-  pages en 390×844 et 360×800, FR et AR : aucun débordement horizontal, le
-  formulaire passe déjà en une colonne, le RTL tient. Défauts relevés : bandeau
-  de menu à 216 px (26 % de l'écran, le titre de l'accueil ne commence qu'à
-  354 px), champs de formulaire à 15,2 px (Safari iOS zoome au focus sous
-  16 px), ancre `#contact-form` en `scroll-margin-top: 0` sous un bandeau fixe,
-  cibles tactiles sous 44 px (curseurs 26 px, boutons de langue 27 px, liens du
-  pied de page 14 px).
+- **Passe mobile et tablette : faite le 2026-09-06** (elle remplace la consigne
+  du 2026-09-05 qui disait de ne pas tester le mobile). Détail des mesures et
+  de ce qui reste dans `TODO.md`. Les invariants à ne pas casser sont les
+  entrées ci-dessous : affichage indépendant du JavaScript, règles tactiles
+  ancrées sur `(pointer: coarse)`, `pointer-events: auto` sur tout élément
+  interactif du bandeau.
+- **Comment retester sur appareil** : le panneau de prévisualisation intégré ne
+  rend pas les animations (`requestAnimationFrame` gelé) — les mesures DOM y
+  sont fiables, ni les captures ni les FPS ne le sont. Pour du vrai rendu :
+  simulateur iOS (`xcrun simctl boot <udid>`, `openurl`, `io … screenshot`) et
+  émulateur Android (`adb shell am start -a android.intent.action.VIEW -d
+  http://10.0.2.2:<port>/…`, `adb exec-out screencap -p`). **Un seul simulateur
+  démarré à la fois** : deux appareils bloquent `launchd_sim`, que
+  `xcrun simctl shutdown all` débloque. Et servir le site avec un
+  `ThreadingHTTPServer` : en mono-thread, deux onglets en connexion persistante
+  suffisent à figer les pages.
 - **La scène 3D reste sur les 14 pages** (décision du client, 2026-09-06). Ce
   n'est pas du poids mort : le `<canvas id="stage">` est sur toutes les pages et
   le voile vert est fait pour la laisser transparaître. three.js pèse ~700 Ko
