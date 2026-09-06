@@ -1393,11 +1393,12 @@ body.no-webgpu .atmosphere {
 
 /* --- ESSAI voile vert : « Le problème » seulement, avant déploiement sur les
    autres pages. Les sous-pages posent .detail-page en rgba(5,7,10,0.92), un
-   quasi-noir à 92 % qui masque la scène 3D. Ici on l'ouvre à 82 % et on le
+   quasi-noir à 92 % qui masque la scène 3D. Ici on l'ouvre à 78 % et on le
    teinte en vert. --ink-faint est remonté à 0,60 sur ce fond translucide : à
-   0,50 il tombait à 3,8:1 au-dessus des parties claires de la scène.
+   0,50 il tombait sous le seuil AA au-dessus des parties claires de la
+   scène ; à 0,60 il tient 4,77:1 au pire cas.
    Pour déployer : retirer le sélecteur body[data-page="problem"]. --- */
 body[data-page="problem"] .detail-page {
-	background: rgba(10, 26, 8, 0.82);
+	background: rgba(10, 26, 8, 0.78);
 	--ink-faint: rgba(246, 243, 236, 0.6);
 }
