@@ -18,9 +18,23 @@
   bordure ni ombre de conteneur — la « bulle » de fond a été écartée le
   2026-09-05 ; juste du texte souligné avec `text-shadow` pour la
   lisibilité sur le fond animé, couleur `var(--accent)` au survol.
-- Ne pas vérifier/tester l'affichage mobile pour l'instant (décision du
-  2026-09-05) : on finit le desktop d'abord, la passe mobile viendra
-  ensuite séparément.
+- **Passe mobile en cours depuis le 2026-09-06** — remplace la consigne du
+  2026-09-05 qui disait de ne pas tester le mobile. Constat mesuré sur les 14
+  pages en 390×844 et 360×800, FR et AR : aucun débordement horizontal, le
+  formulaire passe déjà en une colonne, le RTL tient. Défauts relevés : bandeau
+  de menu à 216 px (26 % de l'écran, le titre de l'accueil ne commence qu'à
+  354 px), champs de formulaire à 15,2 px (Safari iOS zoome au focus sous
+  16 px), ancre `#contact-form` en `scroll-margin-top: 0` sous un bandeau fixe,
+  cibles tactiles sous 44 px (curseurs 26 px, boutons de langue 27 px, liens du
+  pied de page 14 px).
+- **La scène 3D reste sur les 14 pages** (décision du client, 2026-09-06). Ce
+  n'est pas du poids mort : le `<canvas id="stage">` est sur toutes les pages et
+  le voile vert est fait pour la laisser transparaître. three.js pèse ~700 Ko
+  gzip (279 Ko `three.core.js` + 415 Ko `three.webgpu.js`), identique partout
+  donc mis en cache après la première page — le coût réel est l'analyse des
+  3,5 Mo décompressés au premier chargement, pas le réseau. **Ne pas proposer
+  de la retirer** ; le levier est de ne pas bloquer le contenu pendant son
+  chargement et de l'alléger sur mobile.
 - **Survol des sous-menus du header : RÉSOLU** (2026-09-05). Cause racine :
   tant qu'un `<details>` est fermé, Chrome pose `content-visibility: hidden`
   sur `::details-content`, ce qui empêche tout rendu des descendants **quel
