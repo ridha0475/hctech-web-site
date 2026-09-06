@@ -593,6 +593,7 @@ main { position: relative; z-index: 10; }
 
 .nav__links {
 	display: flex;
+	flex-wrap: wrap;
 	gap: clamp(0.5rem, 1.4vw, 1rem);
 	align-items: center;
 }
@@ -607,6 +608,10 @@ main { position: relative; z-index: 10; }
 	font-weight: 600;
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
+	/* Sans ceci, entre 760 et 900 px les libellés se coupent en deux lignes
+	   à l'intérieur du bouton (constaté sur iPad Air en portrait). On préfère
+	   que les entrées passent à la ligne suivante, d'où le flex-wrap ci-dessus. */
+	white-space: nowrap;
 	padding: 0.4rem 0.75rem;
 	border-radius: 0.6rem;
 	background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
