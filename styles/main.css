@@ -817,6 +817,11 @@ main { position: relative; z-index: 10; }
 .hero__cta { margin-top: clamp(1.6rem, 3vh, 2.4rem); }
 
 /* --- contact --- */
+/* Cible des 34 liens « Demander une étude ». Le bandeau étant fixe, sans marge
+   de défilement le haut du formulaire arrive sous le menu. Même valeur que
+   .problem-section. */
+#contact-form { scroll-margin-top: 8rem; }
+
 .contact__grid {
 	display: grid;
 	grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
@@ -869,7 +874,7 @@ main { position: relative; z-index: 10; }
 	border-radius: 0.6rem;
 	background: rgba(246, 243, 236, 0.05);
 	color: var(--ink);
-	font: 400 0.95rem/1.45 var(--sans);
+	font: 400 1rem/1.45 var(--sans); /* 16 px minimum : en dessous, Safari iOS zoome au focus */
 	padding: 0.8rem 0.95rem;
 	transition: border-color 0.25s, background 0.25s;
 	resize: vertical;
