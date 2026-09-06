@@ -115,6 +115,14 @@ export function createScroll( { reducedMotion = false } = {} ) {
 
 	/** Call once the renderer has a frame on screen. */
 	function begin() {
+		// Chargement lent : le voile s'est déjà levé tout seul et le visiteur
+		// lit le texte. Le masquer maintenant pour le réanimer serait un
+		// clignotement — on laisse tout en place, visible.
+		if ( performance.now() > 1500 ) {
+			ScrollTrigger.refresh();
+			return;
+		}
+
 		const hero = document.querySelector( '.hero' );
 		const heroItems = revealsFor( hero, false );
 

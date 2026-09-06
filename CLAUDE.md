@@ -21,6 +21,17 @@
   bordure ni ombre de conteneur — la « bulle » de fond a été écartée le
   2026-09-05 ; juste du texte souligné avec `text-shadow` pour la
   lisibilité sur le fond animé, couleur `var(--accent)` au survol.
+- **Ni le contenu ni le bandeau ne dépendent du JavaScript** (2026-09-06). Le
+  voile de démarrage (`.boot`) et le bandeau (`.chrome`) s'affichent par des
+  **animations CSS** (`boot-leave`, `chrome-in`), pas par les classes posées en
+  JS. Raison : `DOMContentLoaded` attend les scripts différés — 3,8 Mo — donc
+  s'y fier laissait la page masquée pendant tout le téléchargement, constaté
+  sur Chrome Android à froid. Les classes `is-done` / `is-live` restent un
+  moyen d'écourter, d'où le `animation: none` dans leurs règles : sans lui,
+  l'animation redémarrerait après coup et ferait clignoter l'élément. Vérifié
+  en servant la page **sans aucune balise `<script>`** : contenu et bandeau
+  s'affichent. Corollaire connu et accepté : le bouton hamburger, lui, a besoin
+  de son écouteur, donc il reste inerte tant que `i18n.js` n'est pas chargé.
 - **Le contenu ne dépend plus de la scène 3D** (2026-09-06). Le script en tête
   de page lève le voile de démarrage dès `DOMContentLoaded` au lieu d'attendre
   la scène ; `src/main.js` crée le défilement et lance `scroll.begin()` **avant**

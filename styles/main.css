@@ -119,9 +119,16 @@ body.is-live .atmosphere { opacity: 1; }
 	z-index: 20;
 	opacity: 0;
 	pointer-events: none;
+	/* Même raison que le voile : `is-live` est posé à `DOMContentLoaded`, qui
+	   attend les scripts différés. Sans cette animation, le bandeau restait
+	   invisible pendant tout le téléchargement alors que le contenu, lui,
+	   s'affichait — navigation absente sur les connexions lentes. */
+	animation: chrome-in 1.2s var(--ease-out) 0.9s forwards;
 }
 
-body.is-live .chrome { opacity: 1; transition: opacity 1.2s var(--ease-out) 0.5s; }
+@keyframes chrome-in { to { opacity: 1; } }
+
+body.is-live .chrome { animation: none; opacity: 1; transition: opacity 1.2s var(--ease-out) 0.5s; }
 
 .nav {
 	position: fixed;
@@ -474,10 +481,18 @@ main { position: relative; z-index: 10; }
 	display: grid;
 	place-items: center;
 	background: #05070a;
-	transition: opacity 0.6s var(--ease-out), visibility 0.6s;
+	transition: opacity 0.5s var(--ease-out), visibility 0.5s;
+	/* Le voile se lève tout seul, sans JavaScript. `DOMContentLoaded` attend
+	   les scripts différés — 3,8 Mo — donc s'y fier laissait le voile en place
+	   pendant tout le téléchargement (constaté sur Chrome Android à froid).
+	   Le texte, lui, est dans le HTML et mis en forme dès l'arrivée de la
+	   feuille de style. `is-done` reste un moyen d'écourter. */
+	animation: boot-leave 0.5s var(--ease-out) 0.7s forwards;
 }
 
-.boot.is-done { opacity: 0; visibility: hidden; }
+@keyframes boot-leave { to { opacity: 0; visibility: hidden; } }
+
+.boot.is-done { animation: none; opacity: 0; visibility: hidden; }
 
 .boot__inner { display: grid; justify-items: center; gap: 1.5rem; }
 
