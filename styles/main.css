@@ -239,18 +239,6 @@ body.is-live .chrome { opacity: 1; transition: opacity 1.2s var(--ease-out) 0.5s
 .rail li.is-active span { max-width: 8rem; }
 
 /* live readout */
-.hud {
-	left: var(--gutter);
-	bottom: clamp(1rem, 2.2vw, 1.9rem);
-	display: flex;
-	gap: 0.55rem;
-	font-family: var(--mono);
-	font-size: 0.62rem;
-	letter-spacing: 0.18em;
-	text-transform: uppercase;
-	color: var(--ink-faint);
-}
-
 /* ============================================================== layout == */
 
 main { position: relative; z-index: 10; }
@@ -561,7 +549,6 @@ main { position: relative; z-index: 10; }
 	.chapter--right .spec dd { order: 0; text-align: left; }
 	.chapter--right .panel__inner::before { background: radial-gradient(80% 58% at 30% 52%, rgba(4, 6, 9, 0.76), rgba(4, 6, 9, 0) 74%); }
 	.spec > div, .colophon > div { grid-template-columns: 7.5rem 1fr; font-size: 0.66rem; }
-	.hud { font-size: 0.55rem; letter-spacing: 0.12em; }
 	.nav__meta { display: none; }
 }
 
