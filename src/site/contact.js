@@ -76,15 +76,13 @@ wireForm('form-contact', {
 	],
 });
 
-// Coming from the calculator: prefill the étude form's volume fields only — never the message.
+// Coming from the calculator: prefill the étude form's daily volume only — never the message.
 try {
 	const calc = JSON.parse(localStorage.getItem('hctech-calc') || 'null');
 	const etudeForm = document.getElementById('form-etude');
 	if (calc && etudeForm) {
 		const volumeInput = etudeForm.querySelector('[name="dailyVolume"]');
 		if (volumeInput && !volumeInput.value) volumeInput.value = calc.volume;
-		const tankInput = etudeForm.querySelector('[name="tankVolume"]');
-		if (tankInput && !tankInput.value) tankInput.value = calc.tank;
 	}
 } catch {
 	/* no stored estimate, or localStorage unavailable — leave the form blank */

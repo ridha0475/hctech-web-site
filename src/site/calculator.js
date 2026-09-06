@@ -1,4 +1,4 @@
-/** Estimation de la récupération et de la part station, depuis les trois curseurs. */
+/** Estimation de la récupération et de la part station, depuis les deux curseurs. */
 
 const RECOVERY_RATE = 0.005; // 5 ‰ — hypothèse interne médiane, non validée terrain
 const STATION_SHARE = 0.4; // modèle 60 / 40 HCTECH / exploitant
@@ -22,7 +22,6 @@ const priceInput = typeof document !== 'undefined' && document.getElementById('c
 
 if (priceInput) {
 	const volumeInput = document.getElementById('calc-volume');
-	const tankInput = document.getElementById('calc-tank');
 	const el = (id) => document.getElementById(id);
 	const t = (key) => (window.__i18nGet ? window.__i18nGet(key) : key);
 
@@ -32,7 +31,6 @@ if (priceInput) {
 	function update() {
 		const price = Number(priceInput.value);
 		const volume = Number(volumeInput.value);
-		const tank = Number(tankInput.value);
 		const r = estimate(volume, price);
 
 		const liters = t('calc.unit.liters');
@@ -42,7 +40,6 @@ if (priceInput) {
 
 		el('calc-price-out').textContent = `${money(price)} ${dt}`;
 		el('calc-volume-out').textContent = `${round(volume)} ${liters}`;
-		el('calc-tank-out').textContent = `${round(tank)} ${liters}`;
 
 		for (const period of ['day', 'month', 'year']) {
 			el(`calc-liters-${period}`).textContent = `${round(r.liters[period])} ${liters}`;
@@ -51,13 +48,13 @@ if (priceInput) {
 		}
 
 		try {
-			localStorage.setItem('hctech-calc', JSON.stringify({ price, volume, tank }));
+			localStorage.setItem('hctech-calc', JSON.stringify({ price, volume }));
 		} catch {
 			/* localStorage indisponible (navigation privée) — l'estimation s'affiche quand même */
 		}
 	}
 
-	for (const input of [priceInput, volumeInput, tankInput]) input.addEventListener('input', update);
+	for (const input of [priceInput, volumeInput]) input.addEventListener('input', update);
 	window.addEventListener('hctech:lang', update);
 	update();
 }
