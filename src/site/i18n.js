@@ -143,7 +143,7 @@ const STR = {
 		'footer.madeBy': 'Site réalisé par Nimbus Tech',
 		'meta.contact.title': 'Contact — HCTECH',
 		'meta.contact.description': "Contactez HCTECH pour estimer le potentiel de récupération des vapeurs d'essence de votre station.",
-		'aria.pages': 'Pages', 'aria.language': 'Langue', 'aria.contactForm': 'Formulaire de contact',
+		'aria.pages': 'Pages', 'aria.language': 'Langue', 'aria.menu': 'Menu', 'aria.contactForm': 'Formulaire de contact',
 		'common.discover': 'Explorez la solution.',
 		'boot.request': "connexion au processeur graphique", 'boot.compile': 'préparation des animations',
 		'nav.problem': 'Le problème',
@@ -515,7 +515,7 @@ const STR = {
 		'footer.madeBy': 'Site built by Nimbus Tech',
 		'meta.contact.title': 'Contact — HCTECH',
 		'meta.contact.description': "Contact HCTECH to assess your station's gasoline vapor recovery potential.",
-		'aria.pages': 'Pages', 'aria.language': 'Language', 'aria.contactForm': 'Contact form',
+		'aria.pages': 'Pages', 'aria.language': 'Language', 'aria.menu': 'Menu', 'aria.contactForm': 'Contact form',
 		'common.discover': 'Explore the solution.',
 		'boot.request': 'connecting to graphics processor', 'boot.compile': 'preparing animations',
 		'nav.problem': 'The problem',
@@ -887,7 +887,7 @@ const STR = {
 		'footer.madeBy': 'إنجاز الموقع: Nimbus Tech',
 		'meta.contact.title': 'اتصلوا بنا — HCTECH',
 		'meta.contact.description': 'اتصلوا بـ HCTECH لتقدير إمكانات استرجاع أبخرة البنزين في محطتكم.',
-		'aria.pages': 'الصفحات', 'aria.language': 'اللغة', 'aria.contactForm': 'استمارة الاتصال',
+		'aria.pages': 'الصفحات', 'aria.language': 'اللغة', 'aria.menu': 'القائمة', 'aria.contactForm': 'استمارة الاتصال',
 		'common.discover': 'اكتشفوا الحل.',
 		'boot.request': 'الاتصال بمعالج الرسوم', 'boot.compile': 'إعداد الرسوم المتحركة',
 		'nav.problem': 'المشكلة',
@@ -1184,6 +1184,27 @@ setLang(initial);
 // peut rendre le sous-menu visible — seul [open] le peut. Le délai de fermeture
 // rend indulgent le trajet diagonal souris → sous-menu. Souris uniquement : sur
 // tactile, mouseenter suivi du click natif rouvrirait/refermerait le menu.
+// Menu hamburger (< 760 px). Le panneau est un <nav>, pas un <details> : un
+// simple display:none/flex suffit et échappe au piège content-visibility
+// documenté plus bas pour les sous-menus.
+const navBar = document.querySelector('.nav');
+const navBurger = document.querySelector('.nav__burger');
+
+function setMenu(open) {
+	navBar.classList.toggle('is-open', open);
+	navBurger.setAttribute('aria-expanded', String(open));
+}
+
+if (navBurger) {
+	navBurger.addEventListener('click', () => setMenu(!navBar.classList.contains('is-open')));
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && navBar.classList.contains('is-open')) {
+			setMenu(false);
+			navBurger.focus();
+		}
+	});
+}
+
 if (matchMedia('(hover: hover)').matches) {
 	document.querySelectorAll('.nav__dropdown').forEach((dd) => {
 		let closeTimer = null;

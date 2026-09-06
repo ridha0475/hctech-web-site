@@ -716,14 +716,75 @@ main { position: relative; z-index: 10; }
 	border-color: var(--accent);
 }
 
+/* Bouton hamburger : masqué au-dessus de 760 px, seul point d'entrée du menu
+   en dessous. L'ouverture bascule .is-open sur le bandeau plutôt que d'utiliser
+   un <details> englobant : un <details> fermé n'est pas rendu (content-visibility
+   sur ::details-content), donc l'état desktop « toujours ouvert » serait
+   impossible à obtenir en CSS. Voir la note sur les sous-menus plus haut. */
+.nav__burger {
+	pointer-events: auto;
+	display: none;
+	appearance: none;
+	width: 2.75rem;
+	height: 2.75rem;
+	padding: 0;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--line-strong);
+	border-radius: 0.7rem;
+	background: transparent;
+	cursor: pointer;
+	transition: border-color 0.25s, background 0.25s;
+}
+
+.nav__burger:hover { border-color: var(--ink-faint); background: rgba(246, 243, 236, 0.05); }
+
+.nav__burger i { position: relative; }
+
+.nav__burger i,
+.nav__burger i::before,
+.nav__burger i::after {
+	display: block;
+	width: 1.15rem;
+	height: 2px;
+	border-radius: 2px;
+	background: var(--ink-soft);
+	transition: transform 0.25s var(--ease-out), background 0.2s;
+}
+
+.nav__burger i::before { content: ''; position: absolute; top: -0.4rem; left: 0; }
+.nav__burger i::after { content: ''; position: absolute; top: 0.4rem; left: 0; }
+
+.nav.is-open .nav__burger i { background: transparent; }
+.nav.is-open .nav__burger i::before { transform: translateY(0.4rem) rotate(45deg); }
+.nav.is-open .nav__burger i::after { transform: translateY(-0.4rem) rotate(-45deg); }
+
 @media (max-width: 760px) {
-	.nav { flex-wrap: wrap; gap: 0.7rem; padding-bottom: 0.7rem; }
+	.nav { flex-wrap: wrap; gap: 0.7rem; }
+	.nav__burger { display: inline-flex; }
+	.nav__lang { margin-inline-start: auto; }
 	.nav__links {
+		display: none;
 		order: 3;
 		width: 100%;
 		flex-wrap: wrap;
 		gap: 0.8rem 1.2rem;
 		padding: 0.55rem 0;
+	}
+	.nav.is-open { padding-bottom: 0.7rem; }
+	.nav.is-open .nav__links { display: flex; }
+
+	/* Dans le panneau, le sous-menu ouvert se déplie dans le flux au lieu de
+	   flotter : en absolu il recouvrait le lien de la ligne suivante. Le
+	   dépliant prend alors toute la largeur, comme un accordéon. */
+	.nav.is-open:has(.nav__dropdown[open]) { padding-bottom: 0.7rem; }
+	.nav.is-open .nav__dropdown[open] { width: 100%; }
+	.nav.is-open .nav__submenu {
+		position: static;
+		width: auto;
+		max-width: none;
+		transform: none;
+		padding-top: 0.5rem;
 	}
 	.nav__links > a,
 	.nav__links > .nav__dropdown > summary { white-space: nowrap; font-size: 0.82rem; }

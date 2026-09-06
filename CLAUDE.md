@@ -18,6 +18,12 @@
   bordure ni ombre de conteneur — la « bulle » de fond a été écartée le
   2026-09-05 ; juste du texte souligné avec `text-shadow` pour la
   lisibilité sur le fond animé, couleur `var(--accent)` au survol.
+- **`.chrome` pose `pointer-events: none`** et chaque élément interactif du
+  bandeau le réactive individuellement (`.nav__brand`, `.nav__links > a`,
+  `.nav__dropdown`, `.nav__lang button`, `.nav__burger`). Tout nouvel élément
+  cliquable ajouté dans le header doit porter `pointer-events: auto`, sinon il
+  est parfaitement visible et parfaitement intappable. Constaté le 2026-09-06
+  en ajoutant le bouton hamburger.
 - **Passe mobile en cours depuis le 2026-09-06** — remplace la consigne du
   2026-09-05 qui disait de ne pas tester le mobile. Constat mesuré sur les 14
   pages en 390×844 et 360×800, FR et AR : aucun débordement horizontal, le
