@@ -11,13 +11,25 @@
   du dépôt, `CLAUDE.md` et `TODO.md` compris. Relire `git status` avant de
   committer et ne rien laisser de côté — sinon les notes et le suivi
   divergent de ce qui est réellement publié.
-- Cache-busting : toute modif de `styles/main.css`, `src/site/i18n.js`
-  ou `src/site/contact.js` doit bumper son `?v=N` dans les pages HTML qui
-  la chargent, sinon les visiteurs gardent l'ancienne version en cache.
+- Cache-busting : toute modif de `styles/main.css`, `src/site/i18n.js`,
+  `src/site/contact.js`, `src/site/calculator.js` ou `src/main.js` doit bumper
+  son `?v=N` dans les pages HTML qui la chargent, sinon les visiteurs gardent
+  l'ancienne version en cache. `src/main.js` a rejoint la liste le 2026-09-06 :
+  il partage désormais un contrat de classes (`is-scene`) avec le script en
+  tête de page, et un cache décalé entre les deux masquerait la scène.
 - Sous-menus du header (`.nav__submenu`) : liens en ligne SANS fond ni
   bordure ni ombre de conteneur — la « bulle » de fond a été écartée le
   2026-09-05 ; juste du texte souligné avec `text-shadow` pour la
   lisibilité sur le fond animé, couleur `var(--accent)` au survol.
+- **Le contenu ne dépend plus de la scène 3D** (2026-09-06). Le script en tête
+  de page lève le voile de démarrage dès `DOMContentLoaded` au lieu d'attendre
+  la scène ; `src/main.js` crée le défilement et lance `scroll.begin()` **avant**
+  `createStage()`. Cet ordre est indispensable : si la chorégraphie partait
+  après, le texte déjà lisible serait masqué par `gsap.from()` puis réanimé —
+  un clignotement. Le délai de sécurité de 3 s ne pose plus `no-webgpu`
+  définitivement : il le pose, et la scène le retire en arrivant (`is-scene`).
+  Mesuré sur Safari iOS : contenu visible à `DOMContentLoaded` + 2 ms contre
+  1 473 à 3 914 ms avant, et la scène n'est plus perdue quand le délai expire.
 - **`.chrome` pose `pointer-events: none`** et chaque élément interactif du
   bandeau le réactive individuellement (`.nav__brand`, `.nav__links > a`,
   `.nav__dropdown`, `.nav__lang button`, `.nav__burger`). Tout nouvel élément

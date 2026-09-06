@@ -30,6 +30,15 @@ function fail( reason ) {
 
 async function start() {
 
+	/* Le contenu ne dépend plus de la scène. On met en place le défilement et
+	   on lance la chorégraphie du texte tout de suite : sinon, le voile levé
+	   par le script en tête de page montrerait un hero déjà lisible que
+	   `gsap.from()` masquerait ensuite pour le réanimer — un clignotement.
+	   Mesuré le 2026-09-06 sur Safari iOS : jusqu'à 3,9 s d'écran noir avant. */
+	const scroll = createScroll( { reducedMotion } );
+	const drive = scroll.drive;
+	scroll.begin();
+
 	if ( ! navigator.gpu ) {
 		fail( 'navigator.gpu is undefined' );
 		return;
@@ -44,9 +53,6 @@ async function start() {
 		return;
 	}
 
-	const scroll = createScroll( { reducedMotion } );
-	const drive = scroll.drive;
-
 	/* first frame: this is where the pipelines actually get built --------- */
 	bootNote.textContent = window.__i18nGet?.('boot.compile') || 'compiling pipelines';
 	await new Promise( ( r ) => requestAnimationFrame( r ) );
@@ -54,9 +60,12 @@ async function start() {
 	await new Promise( ( r ) => requestAnimationFrame( r ) );
 	stage.frame( 1 / 60, drive );
 
-	document.body.classList.add( 'is-live' );
+	/* `is-scene` dit au script en tête de page que la scène est arrivée ; on
+	   retire `no-webgpu` qu'un délai de sécurité expiré aurait pu poser, sinon
+	   le canvas resterait masqué alors que le rendu fonctionne. */
+	document.body.classList.add( 'is-live', 'is-scene' );
+	document.body.classList.remove( 'no-webgpu' );
 	boot.classList.add( 'is-done' );
-	scroll.begin();
 
 	/* --- chrome ---------------------------------------------------------- */
 
