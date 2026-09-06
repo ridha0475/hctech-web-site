@@ -41,6 +41,14 @@
   définitivement : il le pose, et la scène le retire en arrivant (`is-scene`).
   Mesuré sur Safari iOS : contenu visible à `DOMContentLoaded` + 2 ms contre
   1 473 à 3 914 ms avant, et la scène n'est plus perdue quand le délai expire.
+- **Les règles tactiles sont ancrées sur `(pointer: coarse)`, pas sur la
+  largeur** (2026-09-06). Un téléphone en paysage fait 844 px de large : au-delà
+  du seuil de 760 px, il perdait toutes les cibles à 44 px alors qu'il reste
+  manipulé au doigt (curseurs retombés à 26 px, boutons de langue à 27 px). Le
+  panneau hamburger, lui, se déclenche sur `max-width: 760px` **ou**
+  `(max-height: 500px) and (pointer: coarse)` — sans quoi le bandeau déplié
+  mangeait un tiers d'un écran de 411 px de haut. Ne pas revenir à un critère
+  de largeur seule.
 - **`.chrome` pose `pointer-events: none`** et chaque élément interactif du
   bandeau le réactive individuellement (`.nav__brand`, `.nav__links > a`,
   `.nav__dropdown`, `.nav__lang button`, `.nav__burger`). Tout nouvel élément
