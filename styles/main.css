@@ -1335,7 +1335,7 @@ body.no-webgpu .atmosphere {
 .legal-dl a { color: var(--accent); }
 .legal-updated { margin-top: 2.5rem; color: var(--ink-faint); font-size: 0.78rem; }
 
-.page-footer__legal { margin-top: 1.4rem; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; line-height: 1.9; }
+.page-footer__legal { margin: 0; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; line-height: 1.9; color: var(--ink-faint); }
 .page-footer__legal a { color: var(--ink-faint); transition: color 0.2s; }
 .page-footer__legal a:hover { color: var(--accent); }
 
@@ -1381,18 +1381,7 @@ body.no-webgpu .atmosphere {
 	border-top: 1px solid var(--line);
 }
 
-.page-footer__inner {
-	display: flex;
-	justify-content: center;
-	gap: 1rem 2rem;
-	flex-wrap: wrap;
-	text-align: center;
-	font-family: var(--mono);
-	font-size: 0.68rem;
-	letter-spacing: 0.12em;
-	text-transform: uppercase;
-	color: var(--ink-faint);
-}
+
 
 @media (max-width: 980px) {
 	.link-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
