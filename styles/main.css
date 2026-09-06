@@ -37,9 +37,10 @@
 :root {
 	--ink: #f6f3ec;
 	--ink-soft: rgba(246, 243, 236, 0.66);
-	--ink-faint: rgba(246, 243, 236, 0.38);
+	--ink-faint: rgba(246, 243, 236, 0.5);   /* 4,8:1 sur #05070a — seuil AA texte */
 	--accent: #e8c37a;
 	--line: rgba(246, 243, 236, 0.14);
+	--line-strong: rgba(246, 243, 236, 0.45); /* 3,9:1 — bordures d'éléments interactifs, WCAG 1.4.11 */
 
 	--gutter: clamp(1.4rem, 4.6vw, 6.5rem);
 	--chapter-height: 185vh;
@@ -577,6 +578,22 @@ main { position: relative; z-index: 10; }
 	--accent-2: #f08322;            /* HCTECH orange */
 }
 
+.skip-link {
+	position: absolute;
+	inset-inline-start: 0;
+	top: 0;
+	z-index: 100;
+	transform: translateY(-140%);
+	background: var(--accent);
+	color: #05070a;
+	padding: 0.7rem 1.2rem;
+	border-radius: 0 0 0.6rem 0.6rem;
+	font: 600 0.9rem/1 var(--sans);
+	text-decoration: none;
+}
+
+.skip-link:focus { transform: translateY(0); }
+
 /* --- nav --- */
 .nav__logo {
 	height: clamp(2.2rem, 4.4vw, 3.4rem);
@@ -606,7 +623,7 @@ main { position: relative; z-index: 10; }
 	padding: 0.4rem 0.75rem;
 	border-radius: 0.6rem;
 	background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
-	border: 1px solid var(--line);
+	border: 1px solid var(--line-strong);
 	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 	transition: color 0.25s var(--ease-out), background 0.25s, box-shadow 0.12s, transform 0.12s;
 }
@@ -693,7 +710,7 @@ main { position: relative; z-index: 10; }
 .nav__lang button {
 	pointer-events: auto;
 	appearance: none;
-	border: 1px solid var(--line);
+	border: 1px solid var(--line-strong);
 	background: transparent;
 	color: var(--ink-soft);
 	font: 500 0.72rem/1 var(--mono);
@@ -800,7 +817,7 @@ main { position: relative; z-index: 10; }
 .cform textarea {
 	appearance: none;
 	width: 100%;
-	border: 1px solid var(--line);
+	border: 1px solid var(--line-strong);
 	border-radius: 0.6rem;
 	background: rgba(246, 243, 236, 0.05);
 	color: var(--ink);
